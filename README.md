@@ -1,9 +1,11 @@
-# Gokoban - 3D Puzzle Game Written in Go
+# Gokoban - 3D Puzzle Game
 
-Gokoban is a 3D puzzle game written in Go. You control the Go gopher, and your objective in each level is to push the boxes until they are all on top of the pads. There are elevators that help you reach high places and move boxes up and down. It was created using [G3N](https://github.com/g3n/engine) for the [April-July 2017 Gopher Game Jam](https://itch.io/jam/gopher-jam) on [itch.io](https://itch.io).
+Gokoban is a 3D puzzle game written in Go. You control the Go gopher, and your objective in each level is to push the boxes until they are all on top of the yellow pads. There are elevators that help you reach high places and move boxes up and down. Levels are read from text files in [`/levels`](levels) so you can easily modify them and even create new ones.
 
-Levels are read from text files in /levels so you can also play around with editing and creating new levels.
+It was created using [G3N](https://github.com/g3n/engine) for the [April-July 2017 Gopher Game Jam](https://itch.io/jam/gopher-jam) on [itch.io](https://itch.io).
+
+#
 
 <p align="center">
-  <img style="float: right;" src="dist/gokoban_screenshots.gif" alt="Gokoban Screenshots"/>
+  <img src="dist/gokoban_screenshots.gif" alt="Gokoban Screenshots"/>
 </p>
