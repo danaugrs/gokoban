@@ -20,10 +20,10 @@ import (
 	"github.com/g3n/engine/window"
 
 	"fmt"
+	"io/ioutil"
 	"runtime"
 	"strconv"
 	"time"
-	"io/ioutil"
 )
 
 //      ____       _         _
@@ -39,12 +39,12 @@ const CREDITS_LINE2 string = "Music by Eric Matyas (www.soundimage.org)."
 var log *logger.Logger
 
 type GokobanGame struct {
-	win      		window.IWindow
-	gs       		*gls.GLS
-	renderer 		*renderer.Renderer
-	scene    		*core.Node
-	camera       	*camera.Perspective
-	orbitControl 	*control.OrbitControl
+	win          window.IWindow
+	gs           *gls.GLS
+	renderer     *renderer.Renderer
+	scene        *core.Node
+	camera       *camera.Perspective
+	orbitControl *control.OrbitControl
 
 	userData *UserData
 
@@ -53,24 +53,24 @@ type GokobanGame struct {
 	main     *gui.Panel
 	controls *gui.Panel
 
-	musicCheckbox 	*gui.CheckRadio
-	musicSlider 	*gui.Slider
+	musicCheckbox *gui.CheckRadio
+	musicSlider   *gui.Slider
 
-	sfxCheckbox 	*gui.CheckRadio
-	sfxSlider 		*gui.Slider
+	sfxCheckbox *gui.CheckRadio
+	sfxSlider   *gui.Slider
 
-	loadingLabel  		*gui.ImageLabel
-	levelLabel    		*gui.ImageButton
-	titleImage   	 	*gui.ImageButton
-	nextButton    		*gui.ImageButton
-	prevButton    		*gui.ImageButton
-	restartButton 		*gui.ImageButton
-	menuButton 		    *gui.ImageButton
-	quitButton 		    *gui.ImageButton
-	playButton 		    *gui.ImageButton
-	sfxButton 		    *gui.ImageButton
-	musicButton 		*gui.ImageButton
-	fullScreenButton 	*gui.ImageButton
+	loadingLabel     *gui.ImageLabel
+	levelLabel       *gui.ImageButton
+	titleImage       *gui.ImageButton
+	nextButton       *gui.ImageButton
+	prevButton       *gui.ImageButton
+	restartButton    *gui.ImageButton
+	menuButton       *gui.ImageButton
+	quitButton       *gui.ImageButton
+	playButton       *gui.ImageButton
+	sfxButton        *gui.ImageButton
+	musicButton      *gui.ImageButton
+	fullScreenButton *gui.ImageButton
 
 	levelScene *core.Node
 	levelStyle *LevelStyle
@@ -79,14 +79,14 @@ type GokobanGame struct {
 	level      *Level
 	leveln     int
 
-	gopherLocked bool
-	gopherNode   *core.Node
-	steps        int
+	gopherLocked   bool
+	gopherNode     *core.Node
+	steps          int
 	audioAvailable bool
 
 	// Sound/music players
-	musicPlayer 		  *audio.Player
-	musicPlayerMenu 	  *audio.Player
+	musicPlayer           *audio.Player
+	musicPlayerMenu       *audio.Player
 	clickPlayer           *audio.Player
 	hoverPlayer           *audio.Player
 	walkPlayer            *audio.Player
@@ -222,19 +222,19 @@ func (g *GokobanGame) GameCompleted() {
 		g.musicPlayer.Stop()
 		g.PlaySound(g.gameCompletePlayer, nil)
 	}
-		g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3_completed.png")
+	g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3_completed.png")
 }
 
 // InitLevel initializes the level associated to the provided index
 func (g *GokobanGame) InitLevel(n int) {
-	log.Debug("Initializing Level %v", n + 1)
+	log.Debug("Initializing Level %v", n+1)
 
 	// Always enable the button to return to the previous level except when we are in the very first level
 	g.prevButton.SetEnabled(n != 0)
 
 	// The button to go to the next level has 3 different states: disabled, locked and enabled
 	// If this is the very last level - disable it completely
-	if n == len(g.levels) - 1 {
+	if n == len(g.levels)-1 {
 		g.nextButton.SetImage(gui.ButtonDisabled, "gui/right_disabled2.png")
 		g.nextButton.SetEnabled(false)
 	} else {
@@ -271,7 +271,7 @@ func (g *GokobanGame) LoadLevels() {
 	log.Debug("Load Levels")
 
 	files, _ := ioutil.ReadDir("./levels")
-	g.levels = make([]*Level, len(files) - 1)
+	g.levels = make([]*Level, len(files)-1)
 
 	for i, f := range files {
 
@@ -480,8 +480,6 @@ func (g *GokobanGame) LoadGopher() {
 	}
 }
 
-
-
 func (g *GokobanGame) UpdateMusicButton() {
 	if g.userData.MusicOn {
 		g.musicButton.SetImage(gui.ButtonNormal, "gui/music_normal.png")
@@ -514,13 +512,12 @@ func (g *GokobanGame) UpdateSfxButton() {
 	}
 }
 
-
-
+// SetupGui creates all user interface elements
 func (g *GokobanGame) SetupGui(width, height int) {
 	log.Debug("Creating GUI...")
 
 	transparent := math32.Color4{0, 0, 0, 0}
-	blackTextColor := math32.Color{0.3,0.3,0.3}
+	blackTextColor := math32.Color{0.3, 0.3, 0.3}
 	creditsColor := math32.Color{0.6, 0.6, 0.6}
 	sliderColor := math32.Color4{0.628, 0.882, 0.1, 1}
 	sliderColorOff := math32.Color4{0.82, 0.48, 0.48, 1}
@@ -655,7 +652,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	// Level Number Label
 	g.levelLabel, err = gui.NewImageButton("gui/panel.png")
 	g.levelLabel.SetImage(gui.ButtonDisabled, "gui/panel.png")
-	g.levelLabel.SetColor(math32.NewColor(0.8,0.8,0.8))
+	g.levelLabel.SetColor(math32.NewColor(0.8, 0.8, 0.8))
 	g.levelLabel.SetText("TEST")
 	g.levelLabel.SetFontSize(35)
 	g.levelLabel.SetEnabled(false)
@@ -756,7 +753,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.main.SetColor4(math32.NewColor4(0.2, 0.2, 0.2, 0.6))
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.main.SetPositionX((g.root.Width() - g.main.Width()) / 2)
-		g.main.SetPositionY((g.root.Height() - g.main.Height()) / 2 + 50)
+		g.main.SetPositionY((g.root.Height()-g.main.Height())/2 + 50)
 	})
 
 	topRow := gui.NewPanel(g.main.ContentWidth(), 100)
@@ -818,7 +815,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.sfxSlider = gui.NewVSlider(20, 80)
 	g.sfxSlider.SetValue(0.5)
 	g.sfxSlider.Subscribe(gui.OnChange, func(evname string, ev interface{}) {
-		g.SetSfxVolume(4*g.sfxSlider.Value())
+		g.SetSfxVolume(4 * g.sfxSlider.Value())
 	})
 	g.sfxSlider.Subscribe(gui.OnCursorEnter, hoverSound)
 	g.sfxSlider.SetMargins(5, 0, 30, 4)
@@ -903,7 +900,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g3n.SetImageFromFile("img/g3n.png")
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g3n.SetPositionX(g.root.ContentWidth() - g3n.Width())
-		g3n.SetPositionY(g.root.ContentHeight() - 1.3 * g3n.Height())
+		g3n.SetPositionY(g.root.ContentHeight() - 1.3*g3n.Height())
 	})
 	g.menu.Add(g3n)
 
@@ -1138,6 +1135,3 @@ func (g *GokobanGame) RenderFrame() {
 	g.win.SwapBuffers()
 	g.win.PollEvents()
 }
-
-
-// TODO make NewLevel a method of GokobanGame ?

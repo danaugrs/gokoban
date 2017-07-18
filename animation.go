@@ -1,17 +1,17 @@
 package main
 
 import (
-	"github.com/g3n/engine/math32"
 	"github.com/g3n/engine/core"
+	"github.com/g3n/engine/math32"
 )
 
-// Animation describes an ongoing constant speed, linear animation
+// Animation describes an ongoing constant-speed, linear animation
 type Animation struct {
-	node     *core.Node
-	dest     *math32.Vector3
-	speed    float32 // how many squares per second
-	callback func(interface{})
-	cb_arg   interface{}
+	node     *core.Node        // node to animate
+	dest     *math32.Vector3   // the destination
+	speed    float32           // how many "blocks" per second
+	callback func(interface{}) // function to be called once animation is complete
+	cb_arg   interface{}       // arguments stored and passed in to the callback function
 }
 
 // NewAnimation returns a pointer to a new Animation object
@@ -45,4 +45,3 @@ func (a *Animation) Update(timeDelta float64) bool {
 		return false
 	}
 }
-

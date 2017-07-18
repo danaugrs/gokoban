@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"encoding/gob"
+	"os"
 )
 
 // The filepath of the file used to store the UserData instance via Gob

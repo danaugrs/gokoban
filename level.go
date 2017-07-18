@@ -11,6 +11,7 @@ import (
 )
 
 type CELL_TYPE string
+
 const (
 	START          CELL_TYPE = "s"
 	BLOCK          CELL_TYPE = "]"
@@ -20,7 +21,6 @@ const (
 	ELEVATOR_SHAFT CELL_TYPE = "-"
 	NONE           CELL_TYPE = "."
 )
-
 
 type GridCell struct {
 	loc GridLoc
@@ -47,11 +47,11 @@ func (l *GridLoc) Vec3() *math32.Vector3 {
 
 // LevelData contains all the logical information about a level
 type LevelData struct {
-	grid [][][]	GridCell
-	gopherInit 	GridLoc
-	boxesInit  	[]GridLoc
-	pads       	[]GridLoc
-	center 		math32.Vector3
+	grid       [][][]GridCell
+	gopherInit GridLoc
+	boxesInit  []GridLoc
+	pads       []GridLoc
+	center     math32.Vector3
 }
 
 func (ld *LevelData) Get(loc GridLoc) IMapObj {
