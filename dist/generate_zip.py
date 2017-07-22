@@ -38,6 +38,7 @@ if args.os == WINDOWS or args.os == WINDOWS_DEBUG:
 	shutil.copy('win/libvorbis.dll', directory)
 	shutil.copy('win/libvorbisfile.dll', directory)
 	shutil.copy('win/OpenAL32.dll', directory)
+	shutil.copy('win/vcruntime140.dll', directory)
 
 # Create zip archive and delete temporary directory
 shutil.make_archive(directory, 'zip', directory)
