@@ -60,6 +60,8 @@ type GokobanGame struct {
 	sfxSlider   *gui.Slider
 
 	loadingLabel     *gui.ImageLabel
+	instructions1    *gui.ImageLabel
+	instructions2    *gui.ImageLabel
 	levelLabel       *gui.ImageButton
 	titleImage       *gui.ImageButton
 	nextButton       *gui.ImageButton
@@ -231,6 +233,8 @@ func (g *GokobanGame) InitLevel(n int) {
 
 	// Always enable the button to return to the previous level except when we are in the very first level
 	g.prevButton.SetEnabled(n != 0)
+	g.instructions1.SetVisible(n == 0)
+	g.instructions2.SetVisible(n == 0)
 
 	// The button to go to the next level has 3 different states: disabled, locked and enabled
 	// If this is the very last level - disable it completely
@@ -722,6 +726,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.menuButton.Subscribe(gui.OnCursorEnter, hoverSound)
 	footer.Add(g.menuButton)
 
+	g.controls.SetVisible(false)
+	g.root.Add(g.controls)
+
+	// Title
 	g.titleImage, err = gui.NewImageButton("gui/title3.png")
 	g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3.png")
 	g.titleImage.SetEnabled(false)
@@ -740,8 +748,24 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	})
 	g.root.Add(g.loadingLabel)
 
-	g.controls.SetVisible(false)
-	g.root.Add(g.controls)
+	// Instructions
+	g.instructions1 = gui.NewImageLabel("Click and drag to look around. Use the mouse wheel to zoom.")
+	g.instructions1.SetColor(&creditsColor)
+	g.instructions1.SetFontSize(28)
+	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
+		g.instructions1.SetWidth(g.root.ContentWidth())
+		g.instructions1.SetPositionY(3 * g.instructions1.ContentHeight())
+	})
+	g.controls.Add(g.instructions1)
+
+	g.instructions2 = gui.NewImageLabel("Use WASD or the arrow keys to move the gopher (relative to the camera).")
+	g.instructions2.SetColor(&creditsColor)
+	g.instructions2.SetFontSize(28)
+	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
+		g.instructions2.SetWidth(g.root.ContentWidth())
+		g.instructions2.SetPositionY(4 * g.instructions2.ContentHeight())
+	})
+	g.controls.Add(g.instructions2)
 
 	// Main panel
 	g.main = gui.NewPanel(600, 300)
