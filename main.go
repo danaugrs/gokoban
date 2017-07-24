@@ -34,13 +34,13 @@ import (
 //     \____|\___/|_|\_\___/|_.__/ \__,_|_| |_|
 //
 
-const CREDITS_LINE1 string = "Open source game by Daniel Salvadori (github.com/danaugrs). Written in Go and powered by g3n (github.com/g3n/engine)."
+const CREDITS_LINE1 string = "Open source game by Daniel Salvadori (github.com/danaugrs/gokoban). Written in Go and powered by g3n (github.com/g3n/engine)."
 const CREDITS_LINE2 string = "Music by Eric Matyas (www.soundimage.org)."
 
 const INSTRUCTIONS_LINE1 string = "Click and drag to look around. Use the mouse wheel to zoom."
 const INSTRUCTIONS_LINE2 string = "Use WASD or the arrow keys to move the gopher relative to the camera."
 const INSTRUCTIONS_LINE3 string = "Push the box on top the yellow pad, Gopher!"
-const INSTRUCTIONS_LINE3_COMPLETE string = "Well done! Proceed to the next level by clicking on the top right corner!"
+const INSTRUCTIONS_LINE3_COMPLETE string = "Well done! Proceed to the next level by clicking on the top right corner."
 
 var log *logger.Logger
 
@@ -66,10 +66,13 @@ type GokobanGame struct {
 	sfxCheckbox *gui.CheckRadio
 	sfxSlider   *gui.Slider
 
-	loadingLabel     *gui.ImageLabel
-	instructions1    *gui.ImageLabel
-	instructions2    *gui.ImageLabel
-	instructions3    *gui.ImageLabel
+	loadingLabel        *gui.ImageLabel
+	instructions1       *gui.ImageLabel
+	instructions2       *gui.ImageLabel
+	instructions3       *gui.ImageLabel
+	instructionsRestart *gui.ImageLabel
+	instructionsMenu    *gui.ImageLabel
+
 	levelLabel       *gui.ImageButton
 	titleImage       *gui.ImageButton
 	nextButton       *gui.ImageButton
@@ -129,6 +132,8 @@ func (g *GokobanGame) RestartLevel(playSound bool) {
 	g.instructions1.SetVisible(g.leveln == 0)
 	g.instructions2.SetVisible(g.leveln == 0)
 	g.instructions3.SetVisible(g.leveln == 0)
+	g.instructionsRestart.SetVisible(g.leveln == 0)
+	g.instructionsMenu.SetVisible(g.leveln == 0)
 	g.arrowNode.SetVisible(g.leveln == 0)
 
 	g.levels[g.leveln].Restart(playSound)
@@ -138,7 +143,7 @@ func (g *GokobanGame) RestartLevel(playSound bool) {
 func (g *GokobanGame) NextLevel() {
 	log.Debug("Next Level")
 
-	if g.leveln < len(g.levels) {
+	if g.leveln < len(g.levels)-1 {
 		g.InitLevel(g.leveln + 1)
 	}
 }
@@ -204,10 +209,6 @@ func (g *GokobanGame) onKey(evname string, ev interface{}) {
 		g.ToggleFullScreen()
 	case window.KeyR:
 		g.RestartLevel(true)
-	case window.KeyRightBracket:
-		g.NextLevel()
-	case window.KeyLeftBracket:
-		g.PreviousLevel()
 	}
 }
 
@@ -912,6 +913,26 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	})
 	g.controls.Add(g.instructions3)
 
+	buttonInstructionsPad := float32(24)
+
+	g.instructionsRestart = gui.NewImageLabel("Restart Level (R)")
+	g.instructionsRestart.SetColor(&creditsColor)
+	g.instructionsRestart.SetFontSize(20)
+	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
+		//g.instructions3.SetWidth(g.root.ContentWidth())
+		g.instructionsRestart.SetPosition(buttonInstructionsPad, g.root.ContentHeight()-5.5*g.instructionsRestart.ContentHeight())
+	})
+	g.controls.Add(g.instructionsRestart)
+
+	g.instructionsMenu = gui.NewImageLabel("Show Menu (Esc)")
+	g.instructionsMenu.SetColor(&creditsColor)
+	g.instructionsMenu.SetFontSize(20)
+	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
+		//g.instructions3.SetWidth(g.root.ContentWidth())
+		g.instructionsMenu.SetPosition(g.root.ContentWidth()-g.instructionsMenu.ContentWidth()-buttonInstructionsPad, g.root.ContentHeight()-5.5*g.instructionsMenu.ContentHeight())
+	})
+	g.controls.Add(g.instructionsMenu)
+
 	// Main panel
 	g.main = gui.NewPanel(600, 300)
 	mainLayout := gui.NewVBoxLayout()
@@ -984,7 +1005,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.sfxSlider = gui.NewVSlider(20, 80)
 	g.sfxSlider.SetValue(0.5)
 	g.sfxSlider.Subscribe(gui.OnChange, func(evname string, ev interface{}) {
-		g.SetSfxVolume(4 * g.sfxSlider.Value())
+		g.SetSfxVolume(3 * g.sfxSlider.Value())
 	})
 	g.sfxSlider.Subscribe(gui.OnCursorEnter, hoverSound)
 	g.sfxSlider.SetMargins(5, 0, 30, 4)
