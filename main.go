@@ -173,7 +173,7 @@ func (g *GokobanGame) ToggleMenu() {
 			g.musicPlayerMenu.Stop()
 			g.musicPlayer.Play()
 		} else {
-			g.musicPlayer.Pause()
+			g.musicPlayer.Stop()
 			g.musicPlayerMenu.Play()
 		}
 	}
@@ -522,17 +522,50 @@ func (g *GokobanGame) LoadSkyBox() {
 	log.Debug("Done creating skybox")
 }
 
+// LoadGopher loads the gopher model and adds to it the sound players associated to it
+func (g *GokobanGame) LoadGopher() {
+	log.Debug("Decoding gopher model...")
+
+	// Decode model in OBJ format
+	dec, err := obj.Decode("gopher/gopher.obj", "gopher/gopher.mtl")
+	// dec, err := obj.Decode("data/gopher_low_poly2.obj", "data/gopher_low_poly2.mtl")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	// Create a new node with all the objects in the decoded file and adds it to the scene
+	gopherTop, err := dec.NewGroup()
+	if err != nil {
+		panic(err.Error())
+	}
+
+	g.gopherNode = core.NewNode()
+	g.gopherNode.Add(gopherTop)
+
+	log.Debug("Done decoding gopher model")
+
+	// Add gopher-related sound players to gopher node for correct 3D sound positioning
+	if g.audioAvailable {
+		g.gopherNode.Add(g.walkPlayer)
+		g.gopherNode.Add(g.bumpPlayer)
+		g.gopherNode.Add(g.gopherFallStartPlayer)
+		g.gopherNode.Add(g.gopherFallEndPlayer)
+		g.gopherNode.Add(g.gopherHurtPlayer)
+	}
+}
+
+// NewArrowGeometry returns a pointer to a new arrow-shaped Geometry
 func NewArrowGeometry(p float32) *geometry.Geometry {
 
 	// Builds array with vertex positions and texture coordinates
 	positions := math32.NewArrayF32(0, 20)
 	positions.Append(
-		0, 0.5, 0, 0, 0, 1,
-		0, -0.5, 0, 0, 0, 1,
-		1, -0.5, 0, 0, 0, 1,
-		1, 0.5, 0, 0, 0, 1,
-		1, 0.5+p, 0, 0, 0, 1,
-		1, -0.5-p, 0, 0, 0, 1,
+		0, 0.25, 0, 0, 0, 1,
+		0, -0.25, 0, 0, 0, 1,
+		1, -0.25, 0, 0, 0, 1,
+		1, 0.25, 0, 0, 0, 1,
+		1, 0.25+p, 0, 0, 0, 1,
+		1, -0.25-p, 0, 0, 0, 1,
 		2, 0, 0, 0, 0, 1,
 	)
 	// Builds array of indices
@@ -555,70 +588,110 @@ func NewArrowGeometry(p float32) *geometry.Geometry {
 	return geom
 }
 
-// LoadGopher loads the gopher model and adds to it the sound players associated to it
-func (g *GokobanGame) LoadGopher() {
-	log.Debug("Decoding gopher model...")
+// Create the four arrows shown on top of the Gopher
+func (g *GokobanGame) CreateArrowNode() {
 
-	// Decode model in OBJ format
-	dec, err := obj.Decode("gopher/gopher.obj", "gopher/gopher.mtl")
-	// dec, err := obj.Decode("data/gopher_low_poly2.obj", "data/gopher_low_poly2.mtl")
-	if err != nil {
-		panic(err.Error())
-	}
-
-	// Create a new node with all the objects in the decoded file and adds it to the scene
-	gopherTop, err := dec.NewGroup()
-	if err != nil {
-		panic(err.Error())
-	}
-
-	g.gopherNode = core.NewNode()
-	g.gopherNode.Add(gopherTop)
-
-	// Create Arrow Plane
 	g.arrowNode = core.NewNode()
-	arrowGeom := NewArrowGeometry(1)
-	//arrowMaterial := material.NewPhong(math32.NewColor(0, 0.42, 0.64))
+	arrowGeom := NewArrowGeometry(0.5)
 	arrowMaterial := material.NewStandard(math32.NewColor(0.628, 0.882, 0.1))
 	arrowMaterial.SetSide(material.SideDouble)
 
 	arrowMesh := graphic.NewMesh(arrowGeom, arrowMaterial)
-	arrowMesh.SetScale(0.25, 0.1, 1)
+	arrowMesh.SetScale(0.2, 0.2, 1)
 	arrowMesh.SetPosition(0, 0.6, 0)
 	arrowMesh.SetRotationX(-math32.Pi / 2)
 	g.arrowNode.Add(arrowMesh)
 
 	arrowMeshLeft := graphic.NewMesh(arrowGeom, arrowMaterial)
-	arrowMeshLeft.SetScale(0.1, 0.05, 1)
+	arrowMeshLeft.SetScale(0.1, 0.1, 1)
 	arrowMeshLeft.SetPosition(0, 0.6, 0)
 	arrowMeshLeft.SetRotationX(-math32.Pi / 2)
 	arrowMeshLeft.SetRotationY(-math32.Pi / 2)
 	g.arrowNode.Add(arrowMeshLeft)
 
 	arrowMeshRight := graphic.NewMesh(arrowGeom, arrowMaterial)
-	arrowMeshRight.SetScale(0.1, 0.05, 1)
+	arrowMeshRight.SetScale(0.1, 0.1, 1)
 	arrowMeshRight.SetPosition(0, 0.6, 0)
 	arrowMeshRight.SetRotationX(-math32.Pi / 2)
 	arrowMeshRight.SetRotationY(math32.Pi / 2)
 	g.arrowNode.Add(arrowMeshRight)
 
 	arrowMeshBack := graphic.NewMesh(arrowGeom, arrowMaterial)
-	arrowMeshBack.SetScale(0.1, 0.05, 1)
+	arrowMeshBack.SetScale(0.1, 0.1, 1)
 	arrowMeshBack.SetPosition(0, 0.6, 0)
 	arrowMeshBack.SetRotationX(-math32.Pi / 2)
 	arrowMeshBack.SetRotationY(2 * math32.Pi / 2)
 	g.arrowNode.Add(arrowMeshBack)
 
-	log.Debug("Done decoding gopher model")
+	arrowMaterialB := material.NewStandard(math32.NewColor(0, 0, 0))
+	arrowMaterialB.SetSide(material.SideDouble)
+	arrowGeomB := NewArrowGeometry(0.5)
+	positions := arrowGeomB.VBO("VertexPosition")
+	buffer := math32.NewArrayF32(0, 20)
+	buffer.Append(
+		-0.1, 0.35, 0, 0, 0, 1,
+		-0.1, -0.35, 0, 0, 0, 1,
+		0.9, -0.35, 0, 0, 0, 1,
+		0.9, 0.35, 0, 0, 0, 1,
+		0.9, 0.95, 0, 0, 0, 1,
+		0.9, -0.95, 0, 0, 0, 1,
+		2.2, 0, 0, 0, 0, 1,
+	)
+	positions.SetBuffer(buffer)
 
-	// Add gopher-related sound players to gopher node for correct 3D sound positioning
-	if g.audioAvailable {
-		g.gopherNode.Add(g.walkPlayer)
-		g.gopherNode.Add(g.bumpPlayer)
-		g.gopherNode.Add(g.gopherFallStartPlayer)
-		g.gopherNode.Add(g.gopherFallEndPlayer)
-		g.gopherNode.Add(g.gopherHurtPlayer)
-	}
+	arrowMeshB := graphic.NewMesh(arrowGeomB, arrowMaterialB)
+	arrowMeshB.SetScale(0.175, 0.175, 1)
+	arrowMeshB.SetPosition(0.034, 0.599, 0)
+	arrowMeshB.SetRotationX(-math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshB)
+
+	arrowMeshLeftB := graphic.NewMesh(arrowGeomB, arrowMaterialB)
+	arrowMeshLeftB.SetScale(0.1, 0.1, 1)
+	arrowMeshLeftB.SetPosition(0, 0.599, 0)
+	arrowMeshLeftB.SetRotationX(-math32.Pi / 2)
+	arrowMeshLeftB.SetRotationY(-math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshLeftB)
+
+	arrowMeshRightB := graphic.NewMesh(arrowGeomB, arrowMaterialB)
+	arrowMeshRightB.SetScale(0.1, 0.1, 1)
+	arrowMeshRightB.SetPosition(0, 0.599, 0)
+	arrowMeshRightB.SetRotationX(-math32.Pi / 2)
+	arrowMeshRightB.SetRotationY(math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshRightB)
+
+	arrowMeshBackB := graphic.NewMesh(arrowGeomB, arrowMaterialB)
+	arrowMeshBackB.SetScale(0.1, 0.1, 1)
+	arrowMeshBackB.SetPosition(0, 0.599, 0)
+	arrowMeshBackB.SetRotationX(-math32.Pi / 2)
+	arrowMeshBackB.SetRotationY(2 * math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshBackB)
+
+	arrowMeshBB := graphic.NewMesh(arrowGeom, arrowMaterial)
+	arrowMeshBB.SetScale(0.2, 0.2, 1)
+	arrowMeshBB.SetPosition(0, 0.598, 0)
+	arrowMeshBB.SetRotationX(-math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshBB)
+
+	arrowMeshLeftBB := graphic.NewMesh(arrowGeom, arrowMaterial)
+	arrowMeshLeftBB.SetScale(0.1, 0.1, 1)
+	arrowMeshLeftBB.SetPosition(0, 0.598, 0)
+	arrowMeshLeftBB.SetRotationX(-math32.Pi / 2)
+	arrowMeshLeftBB.SetRotationY(-math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshLeftBB)
+
+	arrowMeshRightBB := graphic.NewMesh(arrowGeom, arrowMaterial)
+	arrowMeshRightBB.SetScale(0.1, 0.1, 1)
+	arrowMeshRightBB.SetPosition(0, 0.598, 0)
+	arrowMeshRightBB.SetRotationX(-math32.Pi / 2)
+	arrowMeshRightBB.SetRotationY(math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshRightBB)
+
+	arrowMeshBackBB := graphic.NewMesh(arrowGeom, arrowMaterial)
+	arrowMeshBackBB.SetScale(0.1, 0.1, 1)
+	arrowMeshBackBB.SetPosition(0, 0.598, 0)
+	arrowMeshBackBB.SetRotationX(-math32.Pi / 2)
+	arrowMeshBackBB.SetRotationY(2 * math32.Pi / 2)
+	g.arrowNode.Add(arrowMeshBackBB)
 }
 
 func (g *GokobanGame) UpdateMusicButton() {
@@ -1272,6 +1345,7 @@ func main() {
 
 	g.LoadSkyBox()
 	g.LoadGopher()
+	g.CreateArrowNode()
 	g.LoadLevels()
 
 	g.win.Subscribe(window.OnCursor, g.onCursor)
