@@ -25,11 +25,14 @@ func NewUserData() *UserData {
 
 	// Try to read existing file
 	file, err := os.Open(USER_DATA_FILEPATH)
-	log.Debug("err1 %v", err)
 	if err == nil {
 		decoder := gob.NewDecoder(file)
 		err = decoder.Decode(ud)
-		log.Debug("err2 %v", err)
+		if err != nil {
+			log.Debug("Error decoding user.data: %v", err)
+		}
+	} else {
+		log.Debug("Error opening user.data file: %v", err)
 	}
 	file.Close()
 
@@ -53,11 +56,14 @@ func NewUserData() *UserData {
 func (ud *UserData) Save() error {
 	log.Debug("Saving user data: %+v", ud)
 	newFile, err := os.Create(USER_DATA_FILEPATH)
-	log.Debug("err1 %v", err)
 	if err == nil {
 		encoder := gob.NewEncoder(newFile)
 		err = encoder.Encode(&ud)
-		log.Debug("err2 %v", err)
+		if err != nil {
+			log.Debug("Error encoding user.data: %v", err)
+		}
+	} else {
+		log.Debug("Error creating user.data file: %v", err)
 	}
 	newFile.Close()
 	return err
