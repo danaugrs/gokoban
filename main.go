@@ -346,7 +346,7 @@ func (g *GokobanGame) LoadLevels() {
 
 	for i, f := range files {
 
-		// Skip README.txt
+		// Skip README.md
 		if f.Name() == "README.md" {
 			continue
 		}
