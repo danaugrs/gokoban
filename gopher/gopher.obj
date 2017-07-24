@@ -1,6 +1,6 @@
-# Blender v2.77 (sub 0) OBJ File: 'gopher2.blend'
+# Blender v2.77 (sub 0) OBJ File: 'gopher.blend'
 # www.blender.org
-mtllib gopher2.mtl
+mtllib gopher.mtl
 o go_gopher_high
 v 0.339945 0.211333 0.105506
 v 0.345332 0.238656 0.101117

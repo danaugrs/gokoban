@@ -167,10 +167,11 @@ type Level struct {
 	boxes     []*Box
 	elevators []*Elevator
 
-	gopherNode *core.Node
-	toAnimate  []*Animation
-	animating  bool
-	resetAnim  bool
+	gopherNodeTranslate *core.Node
+	gopherNodeRotate    *core.Node
+	toAnimate           []*Animation
+	animating           bool
+	resetAnim           bool
 }
 
 // NewLevel returns a pointer to a new Level object
@@ -186,8 +187,11 @@ func NewLevel(g *GokobanGame, ld *LevelData, ls *LevelStyle, cam *camera.Perspec
 	l.scene = core.NewNode()
 	l.scene.SetPosition(-ld.center.X, -ld.center.Y, -ld.center.Z)
 
-	l.gopherNode = core.NewNode()
-	l.scene.Add(l.gopherNode)
+	l.gopherNodeTranslate = core.NewNode()
+	l.scene.Add(l.gopherNodeTranslate)
+
+	l.gopherNodeRotate = core.NewNode()
+	l.gopherNodeTranslate.Add(l.gopherNodeRotate)
 
 	log.Debug("Starting NewLevel loop")
 	for i, row := range ld.grid {
@@ -197,8 +201,8 @@ func NewLevel(g *GokobanGame, ld *LevelData, ls *LevelStyle, cam *camera.Perspec
 					switch obj := c.obj.(type) {
 					case *Gopher:
 						l.gopher = obj
-						l.gopherNode.SetPositionVec(c.loc.Vec3())
-						obj.SetNode(l.gopherNode)
+						l.gopherNodeTranslate.SetPositionVec(c.loc.Vec3())
+						obj.SetNode(l.gopherNodeTranslate)
 
 					case *Block:
 						mesh := ls.makeBlock()
@@ -316,25 +320,8 @@ func (l *Level) onKey(evname string, ev interface{}) {
 
 	if !l.game.gopherLocked {
 
-		// Calculate direction of movement based on camera angle and key pressed
-
-		var dir math32.Vector3
-		l.camera.WorldDirection(&dir)
-
-		var zd, xd int
-		if math32.Abs(dir.Z) > math32.Abs(dir.X) {
-			if dir.Z > 0 {
-				zd = 1
-			} else {
-				zd = -1
-			}
-		} else {
-			if dir.X > 0 {
-				xd = 1
-			} else {
-				xd = -1
-			}
-		}
+		xd := int(l.game.stepDelta.X)
+		zd := int(l.game.stepDelta.Y)
 
 		kev := ev.(*window.KeyEvent)
 		switch kev.Keycode {
@@ -426,16 +413,16 @@ func (l *Level) step(zd, xd int) {
 
 		// Rotate gopher
 		if xd > 0 {
-			l.gopher.node.SetRotationY(0)
+			l.gopherNodeRotate.SetRotationY(0)
 		}
 		if xd < 0 {
-			l.gopher.node.SetRotationY(math32.Pi)
+			l.gopherNodeRotate.SetRotationY(math32.Pi)
 		}
 		if zd > 0 {
-			l.gopher.node.SetRotationY(math32.Pi * 3 / 2)
+			l.gopherNodeRotate.SetRotationY(math32.Pi * 3 / 2)
 		}
 		if zd < 0 {
-			l.gopher.node.SetRotationY(math32.Pi / 2)
+			l.gopherNodeRotate.SetRotationY(math32.Pi / 2)
 		}
 
 		// Check if can move
