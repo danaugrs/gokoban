@@ -1,6 +1,6 @@
 Feel free to modify the level files and even create your own!
 
-`s` - The start position of the gopher. Must have one (and only one) of this present.  
+`s` - The start position of the gopher. There must be one (and only one) of this present.  
 `]` - A block.  
 `x` - A box.  
 `o` - A pad, or "objective" - the position where a box will be activated if placed there. Should be on top of a block e.g. `]o`.  
