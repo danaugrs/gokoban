@@ -1362,10 +1362,9 @@ func main() {
 		g.LoadAudio()
 		g.UpdateMusicButton(g.userData.MusicOn)
 		g.UpdateSfxButton(g.userData.SfxOn)
-		if g.userData.MusicOn == true {
-			// Queue the music!
-			g.musicPlayerMenu.Play()
-		}
+
+		// Queue the music!
+		g.musicPlayerMenu.Play()
 	}
 
 	g.LoadSkyBox()
