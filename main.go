@@ -136,6 +136,13 @@ func (g *GokobanGame) RestartLevel(playSound bool) {
 	g.instructionsMenu.SetVisible(g.leveln == 0)
 	g.arrowNode.SetVisible(g.leveln == 0)
 
+	// If the menu is not visible then "free" the gopher
+	// The menu would be visible if the user fell or dropped a box and then opened the menu before the fall ended
+	// If the menu is visible then we want to keep the gopher locked
+	if !g.menu.Visible() {
+		g.gopherLocked = false
+	}
+
 	g.levels[g.leveln].Restart(playSound)
 }
 
@@ -168,20 +175,33 @@ func (g *GokobanGame) ToggleFullScreen() {
 func (g *GokobanGame) ToggleMenu() {
 	log.Debug("Toggle Menu")
 
-	if g.audioAvailable {
-		if g.menu.Visible() {
+	if g.menu.Visible() {
+
+		// Dispatch OnMouseUp to clear the orbit control if user had mouse button pressed when they pressed Esc to hide menu
+		g.win.Dispatch(gui.OnMouseUp, &window.MouseEvent{})
+
+		// Dispatch OnCursorLeave to sliders in case user had cursor over sliders when they pressed Esc to hide menu
+		g.sfxSlider.Dispatch(gui.OnCursorLeave, &window.MouseEvent{})
+		g.musicSlider.Dispatch(gui.OnCursorLeave, &window.MouseEvent{})
+
+		g.menu.SetVisible(false)
+		g.controls.SetVisible(true)
+		g.orbitControl.Enabled = true
+		g.gopherLocked = false
+		if g.audioAvailable {
 			g.musicPlayerMenu.Stop()
 			g.musicPlayer.Play()
-		} else {
+		}
+	} else {
+		g.menu.SetVisible(true)
+		g.controls.SetVisible(false)
+		g.orbitControl.Enabled = false
+		g.gopherLocked = true
+		if g.audioAvailable {
 			g.musicPlayer.Stop()
 			g.musicPlayerMenu.Play()
 		}
 	}
-
-	g.gopherLocked = !g.gopherLocked
-	g.menu.SetVisible(!g.menu.Visible())
-	g.controls.SetVisible(!g.controls.Visible())
-	g.orbitControl.Enabled = !g.orbitControl.Enabled
 }
 
 // Quit saves the user data and quits the game
@@ -208,7 +228,9 @@ func (g *GokobanGame) onKey(evname string, ev interface{}) {
 	case window.KeyF:
 		g.ToggleFullScreen()
 	case window.KeyR:
-		g.RestartLevel(true)
+		if !g.menu.Visible() && g.steps > 0 {
+			g.RestartLevel(true)
+		}
 	}
 }
 
@@ -216,7 +238,7 @@ func (g *GokobanGame) onKey(evname string, ev interface{}) {
 func (g *GokobanGame) onMouse(evname string, ev interface{}) {
 	mev := ev.(*window.MouseEvent)
 
-	if g.leveln > 0 {
+	if g.gopherLocked == false && g.leveln > 0 {
 		// Mouse button pressed
 		if mev.Action == window.Press {
 			// Left button pressed
@@ -694,8 +716,8 @@ func (g *GokobanGame) CreateArrowNode() {
 	g.arrowNode.Add(arrowMeshBackBB)
 }
 
-func (g *GokobanGame) UpdateMusicButton() {
-	if g.userData.MusicOn {
+func (g *GokobanGame) UpdateMusicButton(on bool) {
+	if on {
 		g.musicButton.SetImage(gui.ButtonNormal, "gui/music_normal.png")
 		g.musicButton.SetImage(gui.ButtonOver, "gui/music_hover.png")
 		g.musicButton.SetImage(gui.ButtonPressed, "gui/music_click.png")
@@ -710,8 +732,8 @@ func (g *GokobanGame) UpdateMusicButton() {
 	}
 }
 
-func (g *GokobanGame) UpdateSfxButton() {
-	if g.userData.SfxOn {
+func (g *GokobanGame) UpdateSfxButton(on bool) {
+	if on {
 		g.sfxButton.SetImage(gui.ButtonNormal, "gui/sound_normal.png")
 		g.sfxButton.SetImage(gui.ButtonOver, "gui/sound_hover.png")
 		g.sfxButton.SetImage(gui.ButtonPressed, "gui/sound_click.png")
@@ -1038,14 +1060,14 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.musicButton.Subscribe(gui.OnMouseUp, func(evname string, ev interface{}) {
 		g.PlaySound(g.clickPlayer, nil)
 		g.userData.MusicOn = !g.userData.MusicOn
-		g.UpdateMusicButton()
+		g.UpdateMusicButton(g.userData.MusicOn)
 	})
 	g.musicButton.Subscribe(gui.OnCursorEnter, hoverSound)
 	musicControl.Add(g.musicButton)
 
 	// Music Volume Slider
 	g.musicSlider = gui.NewVSlider(20, 80)
-	g.musicSlider.SetValue(0.5)
+	g.musicSlider.SetValue(g.userData.MusicVol)
 	g.musicSlider.Subscribe(gui.OnChange, func(evname string, ev interface{}) {
 		g.SetMusicVolume(g.musicSlider.Value())
 	})
@@ -1069,14 +1091,14 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.sfxButton.Subscribe(gui.OnMouseUp, func(evname string, ev interface{}) {
 		g.PlaySound(g.clickPlayer, nil)
 		g.userData.SfxOn = !g.userData.SfxOn
-		g.UpdateSfxButton()
+		g.UpdateSfxButton(g.userData.SfxOn)
 	})
 	g.sfxButton.Subscribe(gui.OnCursorEnter, hoverSound)
 	sfxControl.Add(g.sfxButton)
 
 	// Sound Effects Volume Slider
 	g.sfxSlider = gui.NewVSlider(20, 80)
-	g.sfxSlider.SetValue(0.5)
+	g.sfxSlider.SetValue(g.userData.SfxVol)
 	g.sfxSlider.Subscribe(gui.OnChange, func(evname string, ev interface{}) {
 		g.SetSfxVolume(3 * g.sfxSlider.Value())
 	})
@@ -1316,16 +1338,11 @@ func main() {
 	g.levelScene = core.NewNode()
 	g.scene.Add(g.camera)
 	g.scene.Add(g.levelScene)
-	g.gopherLocked = true
 	g.stepDelta = math32.NewVector2(0, 0)
 
 	// Add white ambient light to the scene
 	ambLight := light.NewAmbient(&math32.Color{1.0, 1.0, 1.0}, 0.4)
 	g.scene.Add(ambLight)
-
-	//dirLight := light.NewDirectional(&math32.Color{1.0, 1.0, 1.0}, 0.1)
-	//dirLight.SetPosition(-10, 10, 10)
-	//g.scene.Add(dirLight)
 
 	g.levelStyle = NewStandardStyle()
 
@@ -1336,11 +1353,19 @@ func main() {
 	err = loadAudioLibs()
 	if err != nil {
 		log.Error("%s", err)
+		g.UpdateMusicButton(false)
+		g.UpdateSfxButton(false)
+		g.musicButton.SetEnabled(false)
+		g.sfxButton.SetEnabled(false)
 	} else {
 		g.audioAvailable = true
 		g.LoadAudio()
-		// Queue the music!
-		g.musicPlayerMenu.Play()
+		g.UpdateMusicButton(g.userData.MusicOn)
+		g.UpdateSfxButton(g.userData.SfxOn)
+		if g.userData.MusicOn == true {
+			// Queue the music!
+			g.musicPlayerMenu.Play()
+		}
 	}
 
 	g.LoadSkyBox()
@@ -1354,16 +1379,11 @@ func main() {
 		g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3_completed.png")
 	}
 
-	g.musicSlider.SetValue(g.userData.MusicVol)
-	g.sfxSlider.SetValue(g.userData.SfxVol)
-
-	g.UpdateMusicButton()
-	g.UpdateSfxButton()
-
 	// Done Loading - hide the loading label, show the menu, and initialize the level
 	g.loadingLabel.SetVisible(false)
 	g.menu.Add(g.main)
 	g.InitLevel(g.userData.LastLevel)
+	g.gopherLocked = true
 
 	now := time.Now()
 	newNow := time.Now()

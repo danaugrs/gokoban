@@ -573,12 +573,14 @@ func (l *Level) fall(obj IMapObj, playSound bool) {
 	del := false
 	if pfall.y == 0 {
 		log.Debug("...out of game")
+		l.game.gopherLocked = true
+		l.game.arrowNode.SetVisible(false)
 		del = true
 		pfall.y = -20
 		l.game.PlaySound(l.game.levelFailPlayer, nil)
 		cb = func(obj interface{}) {
 			log.Debug("Done falling out of game")
-			l.Restart(true)
+			l.game.RestartLevel(true)
 		}
 	} else {
 		log.Debug("...still in game")
