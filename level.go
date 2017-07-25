@@ -573,8 +573,13 @@ func (l *Level) fall(obj IMapObj, playSound bool) {
 	del := false
 	if pfall.y == 0 {
 		log.Debug("...out of game")
-		l.game.gopherLocked = true
-		l.game.arrowNode.SetVisible(false)
+
+		// If it's the gopher falling - lock it
+		if _, ok := obj.(*Gopher); ok {
+			l.game.gopherLocked = true
+			l.game.arrowNode.SetVisible(false)
+		}
+
 		del = true
 		pfall.y = -20
 		l.game.PlaySound(l.game.levelFailPlayer, nil)
