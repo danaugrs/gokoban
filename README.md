@@ -7,5 +7,5 @@ It was created using [G3N](https://github.com/g3n/engine) for the [April-July 20
 #
 
 <p align="center">
-  <img src="dist/gokoban_screenshots.gif" alt="Gokoban Screenshots"/>
+  <img src="dist/screenshots.gif" alt="Gokoban Screenshots"/>
 </p>
