@@ -19,6 +19,7 @@ import (
 	"github.com/g3n/engine/util/logger"
 	"github.com/g3n/engine/window"
 
+	"flag"
 	"fmt"
 	"github.com/g3n/engine/geometry"
 	"io/ioutil"
@@ -1254,11 +1255,19 @@ func main() {
 	// the context was created (by window.New())
 	runtime.LockOSThread()
 
+	// Parse command line flags
+	showLog := flag.Bool("debug", false, "display the debug log")
+	flag.Parse()
+
 	// Create logger
 	log = logger.New("Gokoban", nil)
 	log.AddWriter(logger.NewConsole(false))
 	log.SetFormat(logger.FTIME | logger.FMICROS)
-	log.SetLevel(logger.DEBUG)
+	if *showLog == true {
+		log.SetLevel(logger.DEBUG)
+	} else {
+		log.SetLevel(logger.INFO)
+	}
 	log.Info("Initializing Gokoban")
 
 	// Create GokobanGame struct
