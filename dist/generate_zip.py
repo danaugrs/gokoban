@@ -30,6 +30,10 @@ shutil.copytree('../audio', directory + "/audio")
 shutil.copytree('../img', directory + "/img", ignore=ignore_func)
 shutil.copytree('../gui', directory + "/gui", ignore=ignore_func)
 shutil.copytree('../gopher', directory + "/gopher", ignore=ignore_func)
+shutil.copy('../LICENSE', directory)
+shutil.copy('../README.md', directory)
+
+# Move executable into directory to be archived
 shutil.move('../gokoban.exe', directory)
 
 # If windows, need to copy the sound library DLLs
