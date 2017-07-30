@@ -3,13 +3,13 @@ from subprocess import call
 from os.path import join, isfile
 import argparse
 
-WINDOWS = 'win'
-WINDOWS_DEBUG = 'win-debug'
+WINDOWS = 'win64'
+WINDOWS_DEBUG = 'win64-debug'
 LINUX = 'linux'
 
 parser = argparse.ArgumentParser()
 parser.add_argument("os", help="the operating system being built for", choices=[WINDOWS, WINDOWS_DEBUG, LINUX])
-parser.add_argument("version", help="the version of the game")
+parser.add_argument("--version", help="the version of the game")
 args = parser.parse_args()
 
 # Build game
@@ -19,7 +19,9 @@ elif args.os == LINUX or args.os == WINDOWS_DEBUG:
 	call(["go", "build"], cwd="../")
 
 # Set the directory/zipfile name
-directory = "gokoban-" + args.os + "-" + args.version
+directory = "gokoban-" + args.os + "-bin"
+if args.version:
+	directory += ("-" + args.version)
 
 # Ignore any .blend or .xcf files
 ignore_func = lambda d, files: [f for f in files if isfile(join(d, f))  and (f.endswith('.xcf') or f.endswith('.blend'))]
