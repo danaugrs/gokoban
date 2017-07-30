@@ -6,7 +6,7 @@ It was created using [G3N](https://github.com/g3n/engine) for the [April-July 20
 
 ### [:white_check_mark: Download Windows 64-bit Precompiled Binary](https://github.com/danaugrs/gokoban/archive/win64-bin.zip)
 
-![Gokoban Screenshots](dist/screenshots.gif)
+![Gokoban Screenshots](img/screenshots.gif)
 
 ## Building from source
 
