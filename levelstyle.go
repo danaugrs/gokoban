@@ -34,8 +34,8 @@ func NewStandardStyle() *LevelStyle {
 
 	s := new(LevelStyle)
 
-	s.boxLightColorOn = math32.NewColor(0, 1, 0)  // Green
-	s.boxLightColorOff = math32.NewColor(1, 0, 0) // Red
+	s.boxLightColorOn = &math32.Color{0, 1, 0}  // green
+	s.boxLightColorOff = &math32.Color{1, 0, 0} // red
 
 	// Helper function to load texture and handle errors
 	newTexture := func(path string) *texture.Texture2D {
@@ -48,19 +48,19 @@ func NewStandardStyle() *LevelStyle {
 
 	// Load textures and create materials
 
-	s.blockMaterial = material.NewPhong(math32.NewColor(1, 1, 1))
+	s.blockMaterial = material.NewPhong(math32.NewColor("white"))
 	s.blockMaterial.AddTexture(newTexture("img/floor.png"))
 
-	s.padMaterial = material.NewPhong(math32.NewColor(1, 1, 1))
+	s.padMaterial = material.NewPhong(math32.NewColor("white"))
 	s.padMaterial.AddTexture(newTexture("img/pad.png"))
 
-	s.boxMaterialRed = material.NewPhong(math32.NewColor(1, 1, 1))
+	s.boxMaterialRed = material.NewPhong(math32.NewColor("white"))
 	s.boxMaterialRed.AddTexture(newTexture("img/crate_red.png"))
 
-	s.boxMaterialGreen = material.NewPhong(math32.NewColor(1, 1, 1))
+	s.boxMaterialGreen = material.NewPhong(math32.NewColor("white"))
 	s.boxMaterialGreen.AddTexture(newTexture("img/crate_green2.png"))
 
-	s.elevatorMaterial = material.NewPhong(math32.NewColor(1, 1, 1))
+	s.elevatorMaterial = material.NewPhong(math32.NewColor("white"))
 	s.elevatorMaterial.AddTexture(newTexture("img/metal_diffuse.png"))
 
 	// Create functions that return a cube mesh using the provided material, reusing the same cube geometry

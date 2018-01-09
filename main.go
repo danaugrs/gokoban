@@ -7,7 +7,6 @@ package main
 import (
 	"github.com/g3n/engine/audio"
 	"github.com/g3n/engine/audio/al"
-	"github.com/g3n/engine/audio/ov"
 	"github.com/g3n/engine/audio/vorbis"
 	"github.com/g3n/engine/camera"
 	"github.com/g3n/engine/camera/control"
@@ -50,6 +49,7 @@ const INSTRUCTIONS_LINE3_COMPLETE string = "Well done! Proceed to the next level
 var log *logger.Logger
 
 type GokobanGame struct {
+	wmgr         window.IWindowManager
 	win          window.IWindow
 	gs           *gls.GLS
 	renderer     *renderer.Renderer
@@ -444,7 +444,7 @@ func (g *GokobanGame) LoadAudio() {
 	// Create listener and add it to the current camera
 	listener := audio.NewListener()
 	cdir := g.camera.Direction()
-	listener.SetDirectionv(&cdir)
+	listener.SetDirectionVec(&cdir)
 	g.camera.GetCamera().Add(listener)
 
 	// Helper function to create player and handle errors
@@ -620,7 +620,7 @@ func (g *GokobanGame) CreateArrowNode() {
 
 	g.arrowNode = core.NewNode()
 	arrowGeom := NewArrowGeometry(0.5)
-	arrowMaterial := material.NewStandard(math32.NewColor(0.628, 0.882, 0.1))
+	arrowMaterial := material.NewStandard(&math32.Color{0.628, 0.882, 0.1})
 	arrowMaterial.SetSide(material.SideDouble)
 
 	arrowMesh := graphic.NewMesh(arrowGeom, arrowMaterial)
@@ -650,7 +650,7 @@ func (g *GokobanGame) CreateArrowNode() {
 	arrowMeshBack.SetRotationY(2 * math32.Pi / 2)
 	g.arrowNode.Add(arrowMeshBack)
 
-	arrowMaterialB := material.NewStandard(math32.NewColor(0, 0, 0))
+	arrowMaterialB := material.NewStandard(math32.NewColor("black"))
 	arrowMaterialB.SetSide(material.SideDouble)
 	arrowGeomB := NewArrowGeometry(0.5)
 	positions := arrowGeomB.VBO("VertexPosition")
@@ -768,7 +768,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	sliderBorder := gui.BorderSizes{3, 3, 3, 3}
 	zeroBorder := gui.BorderSizes{0, 0, 0, 0}
 
-	gui.StyleDefault.ImageButton = gui.ImageButtonStyles{
+	gui.StyleDefault().ImageButton = gui.ImageButtonStyles{
 		Normal: gui.ImageButtonStyle{
 			Border:      zeroBorder,
 			Paddings:    zeroBorder,
@@ -806,7 +806,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 		},
 	}
 
-	gui.StyleDefault.Slider = gui.SliderStyles{
+	gui.StyleDefault().Slider = gui.SliderStyles{
 		Normal: gui.SliderStyle{
 			Border:      sliderBorder,
 			BorderColor: sliderBorderColor,
@@ -845,7 +845,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 
 	// Menu
 	g.menu = gui.NewPanel(100, 100)
-	g.menu.SetColor4(math32.NewColor4(0.1, 0.1, 0.1, 0.6))
+	g.menu.SetColor4(&math32.Color4{0.1, 0.1, 0.1, 0.6})
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.menu.SetWidth(g.root.ContentWidth())
 		g.menu.SetHeight(g.root.ContentHeight())
@@ -893,7 +893,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	// Level Number Label
 	g.levelLabel, err = gui.NewImageButton("gui/panel.png")
 	g.levelLabel.SetImage(gui.ButtonDisabled, "gui/panel.png")
-	g.levelLabel.SetColor(math32.NewColor(0.8, 0.8, 0.8))
+	g.levelLabel.SetColor(&math32.Color{0.8, 0.8, 0.8})
 	g.levelLabel.SetText("TEST")
 	g.levelLabel.SetFontSize(35)
 	g.levelLabel.SetEnabled(false)
@@ -977,7 +977,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 
 	// Loading Text
 	g.loadingLabel = gui.NewImageLabel("Loading...")
-	g.loadingLabel.SetColor(math32.NewColor(1, 1, 1))
+	g.loadingLabel.SetColor(&math32.Color{1, 1, 1})
 	g.loadingLabel.SetFontSize(40)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.loadingLabel.SetPositionX((g.root.ContentWidth() - g.loadingLabel.ContentWidth()) / 2)
@@ -1040,7 +1040,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.main.SetLayout(mainLayout)
 	g.main.SetBorders(2, 2, 2, 2)
 	g.main.SetBordersColor4(&sliderBorderColor)
-	g.main.SetColor4(math32.NewColor4(0.2, 0.2, 0.2, 0.6))
+	g.main.SetColor4(&math32.Color4{0.2, 0.2, 0.2, 0.6})
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.main.SetPositionX((g.root.Width() - g.main.Width()) / 2)
 		g.main.SetPositionY((g.root.Height()-g.main.Height())/2 + 50)
@@ -1216,12 +1216,6 @@ func (g *GokobanGame) PlaySound(player *audio.Player, node *core.Node) {
 // loadAudioLibs
 func loadAudioLibs() error {
 
-	// Try to load OpenAL
-	err := al.Load()
-	if err != nil {
-		return err
-	}
-
 	// Open default audio device
 	dev, err := al.OpenDevice("")
 	if dev == nil {
@@ -1240,16 +1234,6 @@ func loadAudioLibs() error {
 		return fmt.Errorf("Error setting audio context current:%s", err)
 	}
 	log.Debug("%s version: %s", al.GetString(al.Vendor), al.GetString(al.Version))
-
-	// Try to load Ogg Vorbis support
-	err = ov.Load()
-	if err != nil {
-		return err
-	}
-	err = vorbis.Load()
-	if err != nil {
-		return err
-	}
 	log.Debug("%s", vorbis.VersionString())
 	return nil
 }
@@ -1280,9 +1264,15 @@ func main() {
 	// Load user data from file
 	g.userData = NewUserData()
 
-	// Create window and OpenGL context
+	// Get the window manager
 	var err error
-	g.win, err = window.New("glfw", 1200, 900, "Gokoban", g.userData.FullScreen)
+	g.wmgr, err = window.Manager("glfw")
+	if err != nil {
+		panic(err)
+	}
+
+	// Create window and OpenGL context
+	g.win, err = g.wmgr.CreateWindow(1200, 900, "Gokoban", g.userData.FullScreen)
 	if err != nil {
 		panic(err)
 	}
@@ -1301,7 +1291,7 @@ func main() {
 
 	// Sets the OpenGL viewport size the same as the window size
 	// This normally should be updated if the window is resized.
-	width, height := g.win.GetSize()
+	width, height := g.win.Size()
 	g.gs.Viewport(0, 0, int32(width), int32(height))
 
 	// Creates GUI root panel
@@ -1313,7 +1303,7 @@ func main() {
 	// - Update the root panel size
 	// - Update the camera aspect ratio
 	g.win.Subscribe(window.OnWindowSize, func(evname string, ev interface{}) {
-		width, height := g.win.GetSize()
+		width, height := g.win.Size()
 		g.gs.Viewport(0, 0, int32(width), int32(height))
 		g.root.SetSize(float32(width), float32(height))
 		aspect := float32(width) / float32(height)
@@ -1331,6 +1321,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	g.renderer.SetGui(g.root)
 
 	// Adds a perspective camera to the scene
 	// The camera aspect ratio should be updated if the window is resized.
@@ -1352,6 +1343,7 @@ func main() {
 	g.scene.Add(g.camera)
 	g.scene.Add(g.levelScene)
 	g.stepDelta = math32.NewVector2(0, 0)
+	g.renderer.SetScene(g.scene)
 
 	// Add white ambient light to the scene
 	ambLight := light.NewAmbient(&math32.Color{1.0, 1.0, 1.0}, 0.4)
@@ -1416,23 +1408,20 @@ func main() {
 // RenderFrame renders a frame of the scene with the GUI overlaid
 func (g *GokobanGame) RenderFrame() {
 
-	// Clear buffers
-	g.gs.Clear(gls.DEPTH_BUFFER_BIT | gls.STENCIL_BUFFER_BIT | gls.COLOR_BUFFER_BIT)
-
-	// Render the scene using the specified scene and camera
-	g.renderer.Render(g.scene, g.camera)
-
 	// Process GUI timers
 	g.root.TimerManager.ProcessTimers()
 
-	// Render GUI over everything
-	g.gs.Clear(gls.DEPTH_BUFFER_BIT)
-	err := g.renderer.Render(g.root, g.camera)
+	// Render the scene/gui using the specified camera
+	rendered, err := g.renderer.Render(g.camera)
 	if err != nil {
-		log.Fatal("Render error: %s\n", err)
+		panic(err)
 	}
 
-	// Update window and check for I/O events
-	g.win.SwapBuffers()
-	g.win.PollEvents()
+	// Check I/O events
+	g.wmgr.PollEvents()
+
+	// Update window if necessary
+	if rendered {
+		g.win.SwapBuffers()
+	}
 }
