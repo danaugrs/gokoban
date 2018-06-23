@@ -65,7 +65,7 @@ func NewStandardStyle() *LevelStyle {
 
 	// Create functions that return a cube mesh using the provided material, reusing the same cube geometry
 
-	sharedCubeGeom := geometry.NewBox(1, 1, 1, 1, 1, 1)
+	sharedCubeGeom := geometry.NewBox(1, 1, 1,)
 	makeCubeWithMaterial := func(mat *material.Phong) func() *graphic.Mesh {
 		return func() *graphic.Mesh { return graphic.NewMesh(sharedCubeGeom, mat) }
 	}
