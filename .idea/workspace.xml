@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4679bcbd-7951-4f69-bf43-77e76de58b5f" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/assets/data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/al/al.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/al/al.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/audio_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/audio_file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/listener.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/listener.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/ov/vorbisfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/ov/vorbisfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/player.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/vorbis/vorbis.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/vorbis/vorbis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/wave.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/wave.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/bin/OpenAL32.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/bin/libogg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/bin/libvorbis.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/bin/libvorbisfile.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/CHANGES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/aclocal.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/compile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/config.guess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/config.h.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/config.sub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/configure" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/configure.ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/depcomp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/fish_xiph_org.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/framing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/bitpacking.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/datastructures.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/decoding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/encoding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/general.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_iovec_t.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_packet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_packet_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_bos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_checksum_set.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_continued.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_eos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_granulepos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_packets.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_pageno.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_serialno.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_page_version.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_check.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_destroy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_eos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_flush.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_flush_fill.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_iovecin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_packetin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_packetout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_packetpeek.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_pagein.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_pageout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_pageout_fill.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_reset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_reset_serialno.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_stream_state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_buffer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_check.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_destroy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_pageout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_pageseek.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_reset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/ogg_sync_wrote.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_adv.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_adv1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_bits.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_buffer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_bytes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_get_buffer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_look.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_look1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_read.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_read1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_readinit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_reset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_write.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writealign.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writecheck.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writeclear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writecopy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writeinit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/oggpack_writetrunc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/reference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/libogg/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/multiplex1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/ogg-multiplex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/oggstream.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/packets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/pages.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/rfc3533.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/rfc5334.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/skeleton.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/stream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/vorbisword2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/white-ogg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/doc/white-xifish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/ogg/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/ogg/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/ogg/config_types.h.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/ogg/ogg.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/include/ogg/os_types.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/install-sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/libogg.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/libogg.spec.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/ltmain.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/macosx/English.lproj/InfoPlist.strings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/macosx/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/macosx/Ogg.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/macosx/Ogg_Prefix.pch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/missing" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/ogg-uninstalled.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/ogg.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/ogg.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/src/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/src/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/src/bitwise.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/src/framing.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/VS2015/libogg_dynamic.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/VS2015/libogg_dynamic.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/VS2015/libogg_static.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/VS2015/libogg_static.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libogg-1.3.3/win32/ogg.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/CHANGES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/aclocal.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/autogen.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/compile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/config.guess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/config.h.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/config.sub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/configure" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/configure.ac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/depcomp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/01-introduction.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/02-bitpacking.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/03-codebook.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/04-codec.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/05-comment.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/06-floor0.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/07-floor1.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/08-residue.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/09-helper.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/10-tables.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Doxyfile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Vorbis_I_spec.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Vorbis_I_spec.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Vorbis_I_spec.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Vorbis_I_spec.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/Vorbis_I_spec.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/a1-encapsulation-ogg.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/a2-encapsulation-rtp.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/components.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/eightphase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/fish_xiph_org.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floor1-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floor1-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floor1-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floor1-4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floor1_inverse_dB_table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/floorval.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/footer.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/fourphase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/framing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/helper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/hufftree-under.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/hufftree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/reference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/return.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis_blockout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis_buffer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis_headerout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_analysis_wrote.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_bitrate_addblock.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_bitrate_flushpacket.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_block.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_block_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_block_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_add_tag.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_query.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_comment_query_count.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_commentheader_out.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_dsp_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_dsp_state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_granule_time.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_info_blocksize.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_info_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_info_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_packet_blocksize.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_blockin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_halfrate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_halfrate_p.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_headerin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_idheader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_lapout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_pcmout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_read.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_restart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_synthesis_trackonly.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/libvorbis/vorbis_version_string.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/oggstream.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/programming.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/residue-pack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/residue2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/rfc5215.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/rfc5215.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/squarepolar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/stereo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/stream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/v-comment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbis-clip.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbis-errors.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbis-fidelity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/changes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/examples.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/ovectl_ratemanage2_arg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/ovectl_ratemanage_arg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/reference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_ctl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_init_vbr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_setup_init.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_setup_managed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisenc/vorbis_encode_setup_vbr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/OggVorbis_File.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/callbacks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/chaining_example_c.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/chainingexample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/crosslap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/datastructures.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/decoding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/example.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/exampleindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/fileinfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/initialization.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_bitrate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_bitrate_instant.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_callbacks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_clear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_comment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_crosslap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_fopen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_open.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_open_callbacks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_seek.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_seek_lap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_seek_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_seek_page_lap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_tell.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_pcm_total.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_raw_seek.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_raw_seek_lap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_raw_tell.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_raw_total.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_read.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_read_filter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_read_float.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_seekable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_serialnumber.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_streams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_test_callbacks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_test_open.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_seek.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_seek_lap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_seek_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_seek_page_lap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_tell.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/ov_time_total.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/reference.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/seekexample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/seeking.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/seeking_example_c.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/seeking_test_c.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/seekingexample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/threads.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/vorbisfile/vorbisfile_example_c.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/window1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/doc/window2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/chaining_example.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/decoder_example.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/encoder_example.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/frameview.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/seeking_example.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/examples/vorbisfile_example.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/vorbis/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/vorbis/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/vorbis/codec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/vorbis/vorbisenc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/include/vorbis/vorbisfile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/install-sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/analysis.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/backends.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/barkmel.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/bitrate.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/bitrate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/block.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/coupled/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/coupled/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/coupled/res_books_51.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/coupled/res_books_stereo.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/floor/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/floor/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/floor/floor_books.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/uncoupled/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/uncoupled/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/books/uncoupled/res_books_uncoupled.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/codebook.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/codebook.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/codec_internal.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/envelope.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/envelope.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/floor0.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/floor1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/highlevel.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/info.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lookup.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lookup.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lookup_data.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lookups.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lpc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lpc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lsp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/lsp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/mapping0.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/masking.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/mdct.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/mdct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/misc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/floor_all.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/psych_11.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/psych_16.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/psych_44.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/psych_8.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/residue_16.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/residue_44.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/residue_44p51.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/residue_44u.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/residue_8.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_11.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_16.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_22.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_32.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_44.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_44p51.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_44u.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_8.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/modes/setup_X.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/os.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/psy.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/psy.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/psytune.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/registry.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/registry.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/res0.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/scales.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/sharedbook.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/smallft.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/smallft.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/synthesis.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/tone.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/vorbisenc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/vorbisfile.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/window.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/lib/window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/libvorbis.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/libvorbis.spec.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/ltmain.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/m4/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/m4/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/m4/add_cflags.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/m4/ogg.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/m4/pkg.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/compat/strdup.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/compat/sys/types.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/decoder_example.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/encoder_example.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbis.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbis.mcp.exp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbisenc.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbisenc.mcp.exp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbisfile.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/libvorbisfile.mcp.exp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macos/vorbis.mcp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macosx/English.lproj/InfoPlist.strings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macosx/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/macosx/Vorbis.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/missing" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/symbian/bld.inf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/symbian/config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/symbian/vorbis.mmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/test.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/util.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/util.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/write_read.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/test/write_read.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/todo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbis-uninstalled.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbis.m4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbis.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbisenc-uninstalled.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbisenc.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbisfile-uninstalled.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vorbisfile.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/16.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/16u.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c-1.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c0.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c1.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c2.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c3.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c4.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c5.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c6.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c7.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c8.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44c9.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p-1.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p0.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p1.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p2.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p3.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p4.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p5.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p6.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p7.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p8.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44p9.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u0.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u1.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u2.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u3.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u4.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u5.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u6.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u7.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u8.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/44u9.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/8.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/8u.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/Makefile.am" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/Makefile.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/bookutil.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/bookutil.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/distribution.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/floor_11.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/floor_22.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/floor_44.vqs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/huffbuild.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/latticebuild.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/latticetune.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/localcodebook.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/make_floor_books.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/make_residue_books.pl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/metrics.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/vqgen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/vq/vqgen.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/libogg.vsprops" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/libvorbis/libvorbis_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/libvorbis/libvorbis_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/libvorbisfile/libvorbisfile_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/libvorbisfile/libvorbisfile_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbis_dynamic.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbis_static.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbisdec/vorbisdec_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbisdec/vorbisdec_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbisenc/vorbisenc_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2005/vorbisenc/vorbisenc_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/libogg.vsprops" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/libvorbis/libvorbis_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/libvorbis/libvorbis_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/libvorbisfile/libvorbisfile_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/libvorbisfile/libvorbisfile_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbis_dynamic.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbis_static.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbisdec/vorbisdec_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbisdec/vorbisdec_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbisenc/vorbisenc_dynamic.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2008/vorbisenc/vorbisenc_static.vcproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/libogg.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/libvorbis/libvorbis_dynamic.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/libvorbis/libvorbis_static.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/libvorbisfile/libvorbisfile_dynamic.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/libvorbisfile/libvorbisfile_static.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbis_dynamic.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbis_static.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbisdec/vorbisdec_dynamic.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbisdec/vorbisdec_static.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbisenc/vorbisenc_dynamic.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/VS2010/vorbisenc/vorbisenc_static.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/vorbis.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/vorbisenc.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/libvorbis-1.3.5/win32/vorbisfile.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/ALc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/ALu.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/alcConfig.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/alcRing.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/alstring.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/ambdec.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/ambdec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/alsa.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/base.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/base.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/coreaudio.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/dsound.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/jack.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/loopback.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/mmdevapi.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/null.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/opensl.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/oss.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/portaudio.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/pulseaudio.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/qsa.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/sndio.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/solaris.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/wave.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/backends/winmm.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/bformatdec.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/bformatdec.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/bs2b.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/bsinc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/compat.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/converter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/converter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/chorus.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/compressor.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/dedicated.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/distortion.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/echo.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/equalizer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/flanger.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/modulator.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/null.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/effects/reverb.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/helpers.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/hrtf.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/hrtf.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mastering.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_c.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_defs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_inc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_neon.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_sse.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_sse2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_sse3.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/mixer_sse41.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/nfcfilter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/nfcfilter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/panning.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/uhjfilter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/uhjfilter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/Alc/vector.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/ChangeLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alAuxEffectSlot.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alBuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alEffect.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alError.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alFilter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alListener.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alMain.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alSource.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alThunk.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/alu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/bs2b.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/Include/sample_cvt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alAuxEffectSlot.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alBuffer.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alEffect.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alError.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alExtension.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alFilter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alListener.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alSource.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alState.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/alThunk.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/OpenAL32/sample_cvt.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/XCompile-Android.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/XCompile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/alsoftrc.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/appveyor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/CheckFileOffsetBits.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/CheckFileOffsetBits.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/CheckSharedFunctionExists.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindALSA.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindAudioIO.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindDSound.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindFFmpeg.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindJACK.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindOSS.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindPortAudio.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindPulseAudio.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindQSA.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindSDL2.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindSDL_sound.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindSoundIO.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/cmake/FindWindowsSDK.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/align.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/almalloc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/almalloc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/atomic.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/atomic.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/bool.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/math_defs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/rwlock.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/rwlock.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/static_assert.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/threads.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/threads.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/uintmap.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/common/uintmap.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/config.h.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/docs/3D7.1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/docs/ambdec.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/docs/ambisonics.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/docs/env-vars.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/docs/hrtf.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alffplay.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alhrtf.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/allatency.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alloopback.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alrecord.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alreverb.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/alstream.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/altonegen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/common/alhelpers.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/examples/common/alhelpers.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/hrtf/default-44100.mhr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/hrtf/default-48000.mhr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/al.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/alc.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/alext.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/efx-creative.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/efx-presets.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/include/AL/efx.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/native-tools/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/native-tools/bin2h.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/openal.pc.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/3D7.1.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/hexagon.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/itu5.1-nocenter.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/itu5.1.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/presets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/rectangle.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/presets/square.ambdec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/router/al.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/router/alc.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/router/router.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/router/router.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/CIAIR.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/IRC_1005.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/MIT_KEMAR.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/alsoft-config/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/alsoft-config/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/alsoft-config/mainwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/alsoft-config/mainwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/alsoft-config/mainwindow.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/bsincgen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/makehrtf.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/utils/openal-info.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/version.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/windows/openal-soft-1.18.2/version.h.in" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/camera.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/camera.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/control/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/control/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/control/orbit_control.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/control/orbit_control.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/orthographic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/orthographic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/camera/perspective.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/camera/perspective.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/RenderInfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/RenderInfo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/dispatcher.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/dispatcher.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/node.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/raycaster.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/raycaster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/core/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/core/timer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/box.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/box.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/circle.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/circle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/cylinder.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/cylinder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/geometry.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/geometry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/plane.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/plane.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/sphere.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/sphere.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/geometry/torus.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/geometry/torus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/build.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/build.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/consts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/glapi.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/glapi.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/glapi2go/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/glapi2go/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/glapi2go/template.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/glapi2go/template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/glcorearb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/gls.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/gls.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/program.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/program.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/uniform.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/uniform.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gls/vbo.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gls/vbo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/axis_helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/axis_helper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/graphic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/graphic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/grid_helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/grid_helper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/line_strip.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/line_strip.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/lines.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/lines.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/mesh.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/mesh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/normals_helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/normals_helper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/points.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/points.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/skybox.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/skybox.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/graphic/sprite.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/graphic/sprite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/align.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/align.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/data.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/fonts/FreeMono.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/fonts/FreeSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/fonts/FreeSansBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/fonts/MaterialIcons-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/assets/gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/icon/codepoints" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/assets/icon/icodes.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/assets/icon/icodes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/builder.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/builder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/builder_layout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/builder_layout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/builder_panel.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/builder_panel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/button.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/button.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/chart.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/chart.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/checkradio.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/checkradio.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/control_folder.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/control_folder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/docklayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/docklayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/dropdown.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/dropdown.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/edit.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/edit.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/events.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/events.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/filllayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/filllayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/folder.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/folder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/gridlayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/gridlayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/hboxlayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/hboxlayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/ilayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/ilayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/image.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/image.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/image_button.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/image_button.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/imagelabel.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/imagelabel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/label.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/label.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/panel.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/panel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/root.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/root.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/scrollbar.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/scrollbar.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/scroller.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/scroller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/slider.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/slider.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/splitter.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/splitter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/style.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/style.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/style_default.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/style_default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/style_light.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/style_light.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/tabbar.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/tabbar.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/tree.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/tree.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/vboxlayout.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/vboxlayout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/gui/window.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/window.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/ambient.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/ambient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/directional.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/directional.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/ilight.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/ilight.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/point.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/point.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/light/spot.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/light/spot.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/animation.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/animation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/collada.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/collada.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/geometry.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/geometry.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_animations.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_animations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_effects.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_effects.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_geometries.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_geometries.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_images.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_images.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_lights.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_lights.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_materials.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_materials.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/library_visual_scenes.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/library_visual_scenes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/material.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/material.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/collada/scene.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/collada/scene.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/obj/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/obj/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/loader/obj/obj.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/loader/obj/obj.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/basic.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/basic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/material.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/material.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/phong.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/phong.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/point.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/point.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/material/standard.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/material/standard.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/array.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/array.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/box2.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/box2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/box3.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/box3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/color.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/color.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/color4.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/color4.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/frustum.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/frustum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/line3.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/line3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/math.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/math.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/matrix3.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/matrix3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/matrix4.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/matrix4.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/plane.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/plane.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/quaternion.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/quaternion.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/ray.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/ray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/sphere.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/sphere.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/spline.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/spline.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/triangle.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/triangle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/vector2.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/vector2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/vector3.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/vector3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/math32/vector4.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/math32/vector4.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/renderer.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/renderer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/basic_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/basic_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/include/attributes.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/include/lights.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/include/material.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/include/phong_model.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/panel_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/panel_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/phong_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/phong_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/point_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/point_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/shaders.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/shaders/shaders.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/sources.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/shaders/sources.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/sprite_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/sprite_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/standard_fragment.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaders/standard_vertex.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/renderer/shaman.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/renderer/shaman.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/text/atlas.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/text/atlas.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/text/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/text/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/text/font.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/text/font.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/text/str.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/text/str.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/texture/animator.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/texture/animator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/texture/board.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/texture/board.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/texture/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/texture/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/texture/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/texture/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/texture/texture2D.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/texture/texture2D.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/tools/g3nicodes/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/tools/g3nicodes/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/tools/g3nshaders/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/tools/g3nshaders/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/application/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/application/application.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/application/framerater.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/application/framerater.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/logger/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/logger/console.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/logger/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/logger/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/logger/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/logger/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/logger/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/logger/net.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/logger/net.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/stats/stats.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/stats/stats.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/util/stats/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/util/stats/table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/window/glfw.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/window/glfw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/window/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/window/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/g3n/engine/window/window.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/g3nt/engine/window/window.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="804" column="10" lean-forward="true" selection-start-line="804" selection-start-column="10" selection-end-line="804" selection-end-column="10" />
+              <folding>
+                <element signature="e#176#811#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="levelstyle.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/levelstyle.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slider.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/slider.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="panel.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/panel.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/util.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="window.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/window.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="915">
+              <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="image_button.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/image_button.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>AL</find>
+      <find>Border</find>
+    </findStrings>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/vendor/github.com/g3n/engine/audio/vorbis/vorbis.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/levelstyle.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gokoban" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gokoban" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="g3nt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="g3n" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="g3n" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gokoban" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;gokoban&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="g3n" type="462c0819:PsiDirectoryNode" />
+              <item name="engine" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="levelst&#9;FILE&#9;file:///Users/joealai/go/src/github.com/danaugrs/gokoban/levelstyle.go" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="gokoban" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="gokoban" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+    </configuration>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" x="0" y="0" width="370" height="827" id="Documentation" side_tool="true" visible="true" weight="0.32967034" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11130">
+          <caret line="767" column="31" selection-start-line="767" selection-start-column="31" selection-end-line="767" selection-end-column="31" />
+          <folding>
+            <element signature="e#176#811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/window.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/image_button.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="63" column="45" selection-start-line="63" selection-start-column="45" selection-end-line="63" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11415">
+          <caret line="761" column="47" selection-start-line="761" selection-start-column="47" selection-end-line="761" selection-end-column="47" />
+          <folding>
+            <element signature="e#176#811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11235">
+          <caret line="774" column="16" selection-start-line="774" selection-start-column="16" selection-end-line="774" selection-end-column="16" />
+          <folding>
+            <element signature="e#176#811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/g3nt/engine/audio/vorbis/vorbis.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/window.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/g3nt/engine/gui/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/image_button.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/util.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/panel.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="110" column="4" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../g3n/engine/gui/slider.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="804" column="10" lean-forward="true" selection-start-line="804" selection-start-column="10" selection-end-line="804" selection-end-column="10" />
+          <folding>
+            <element signature="e#176#811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/levelstyle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

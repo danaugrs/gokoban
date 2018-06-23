@@ -758,81 +758,89 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	log.Debug("Creating GUI...")
 
 	transparent := math32.Color4{0, 0, 0, 0}
-	blackTextColor := math32.Color{0.3, 0.3, 0.3}
+	blackTextColor := math32.Color4{0.3, 0.3, 0.3, 1}
 	creditsColor := math32.Color{0.6, 0.6, 0.6}
 	sliderColor := math32.Color4{0.628, 0.882, 0.1, 1}
 	sliderColorOff := math32.Color4{0.82, 0.48, 0.48, 1}
 	sliderColorOver := math32.Color4{0.728, 0.982, 0.2, 1}
 	sliderBorderColor := math32.Color4{0.71, 0.482, 0.26, 1}
 
-	sliderBorder := gui.BorderSizes{3, 3, 3, 3}
-	zeroBorder := gui.BorderSizes{0, 0, 0, 0}
+	sliderBorder := gui.RectBounds{3, 3, 3, 3}
+	zeroBorder := gui.RectBounds{0, 0, 0, 0}
+
+	zeroBounds := gui.RectBounds{0,0,0,0}
+
+	panelBlank := gui.PanelStyle{
+		Margin: zeroBounds,
+		Border: zeroBorder,
+		Padding: zeroBounds,
+		BorderColor:transparent,
+		BgColor:transparent,
+	}
+	panelBlank2 := panelBlank
+	panelBlank3 := panelBlank2
+	panelBlank4 := panelBlank3
+	panelBlank5 := panelBlank4
 
 	gui.StyleDefault().ImageButton = gui.ImageButtonStyles{
 		Normal: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
+			PanelStyle: panelBlank,
+			FgColor:    blackTextColor,
 		},
 		Over: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
+			PanelStyle: panelBlank2,
+			FgColor:    blackTextColor,
 		},
 		Focus: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
+			PanelStyle: panelBlank3,
+			FgColor:    blackTextColor,
 		},
 		Pressed: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
+			PanelStyle: panelBlank4,
+			FgColor:    blackTextColor,
 		},
 		Disabled: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
+			PanelStyle: panelBlank5,
+			FgColor:    blackTextColor,
 		},
 	}
 
+
 	gui.StyleDefault().Slider = gui.SliderStyles{
 		Normal: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
+			PanelStyle: gui.PanelStyle{
+				Border:      sliderBorder,
+				BorderColor: sliderBorderColor,
+				Padding:    zeroBounds,
+				BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
+			},
 			FgColor:     sliderColor,
 		},
 		Over: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
+			PanelStyle: gui.PanelStyle{
+				Border:      sliderBorder,
+				BorderColor: sliderBorderColor,
+				Padding:    zeroBounds,
+				BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
+			},
 			FgColor:     sliderColorOver,
 		},
 		Focus: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
+			PanelStyle: gui.PanelStyle{
+				Border:      sliderBorder,
+				BorderColor: sliderBorderColor,
+				Padding:    zeroBounds,
+				BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
+			},
 			FgColor:     sliderColorOver,
 		},
 		Disabled: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
+			PanelStyle: gui.PanelStyle{
+				Border:      sliderBorder,
+				BorderColor: sliderBorderColor,
+				Padding:    zeroBounds,
+				BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
+			},
 			FgColor:     sliderColorOff,
 		},
 	}
