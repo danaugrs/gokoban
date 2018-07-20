@@ -39,7 +39,7 @@ type BuilderFunc func(*Builder, map[string]interface{}) (IPanel, error)
 // AttribCheckFunc is the type for all attribute check functions
 type AttribCheckFunc func(b *Builder, am map[string]interface{}, fname string) error
 
-// IgnoreSuffix specified the suffix of ignored keys
+// IgnoreSuffix specifies the suffix of ignored keys
 const IgnoreSuffix = "_"
 
 // Panel and layout types
@@ -81,7 +81,7 @@ const (
 	AttribAspectHeight   = "aspectheight"  // float32
 	AttribAspectWidth    = "aspectwidth"   // float32
 	AttribBgColor        = "bgcolor"       // Color4
-	AttribBorders        = "borders"       // BorderSizes
+	AttribBorders        = "borders"       // RectBounds
 	AttribBorderColor    = "bordercolor"   // Color4
 	AttribChecked        = "checked"       // bool
 	AttribColor          = "color"         // Color4
@@ -114,12 +114,12 @@ const (
 	AttribLineSpacing    = "linespacing"   // float32
 	AttribLines          = "lines"         // int
 	AttribMargin         = "margin"        // float32
-	AttribMargins        = "margins"       // BorderSizes
+	AttribMargins        = "margins"       // RectBounds
 	AttribMinwidth       = "minwidth"      // float32 Table
 	AttribAutoHeight     = "autoheight"    // bool
 	AttribAutoWidth      = "autowidth"     // bool
 	AttribName           = "name"          // string
-	AttribPaddings       = "paddings"      // BorderSizes
+	AttribPaddings       = "paddings"      // RectBounds
 	AttribPanel0         = "panel0"        // map[string]interface{}
 	AttribPanel1         = "panel1"        // map[string]interface{}
 	AttribParentInternal = "parent_"       // string (internal attribute)
@@ -144,25 +144,10 @@ const (
 	AttribText           = "text"          // string
 	AttribTitle          = "title"         // string
 	AttribType           = "type"          // string
+	AttribUserData       = "userdata"      // interface{}
 	AttribWidth          = "width"         // float32
 	AttribValue          = "value"         // float32
 	AttribVisible        = "visible"       // bool
-)
-
-const (
-	aPOS         = 1 << iota                                             // attribute position
-	aSIZE        = 1 << iota                                             // attribute size
-	aNAME        = 1 << iota                                             // attribute name
-	aMARGINS     = 1 << iota                                             // attribute margins widths
-	aBORDERS     = 1 << iota                                             // attribute borders widths
-	aBORDERCOLOR = 1 << iota                                             // attribute border color
-	aPADDINGS    = 1 << iota                                             // attribute paddings widths
-	aCOLOR       = 1 << iota                                             // attribute panel bgcolor
-	aENABLED     = 1 << iota                                             // attribute enabled for events
-	aRENDER      = 1 << iota                                             // attribute renderable
-	aVISIBLE     = 1 << iota                                             // attribute visible
-	asPANEL      = 0xFFFFFFF                                             // attribute set for panels
-	asWIDGET     = aPOS | aNAME | aMARGINS | aSIZE | aENABLED | aVISIBLE // attribute set for widgets
 )
 
 // maps align name with align parameter
@@ -313,6 +298,7 @@ func NewBuilder() *Builder {
 		AttribText:          AttribCheckString,
 		AttribTitle:         AttribCheckString,
 		AttribType:          AttribCheckStringLower,
+		AttribUserData:      AttribCheckInterface,
 		AttribValue:         AttribCheckFloat,
 		AttribVisible:       AttribCheckBool,
 		AttribWidth:         AttribCheckFloat,
@@ -401,11 +387,8 @@ func (b *Builder) ParseString(desc string) error {
 				}
 			}
 			return ms, nil
-
-		default:
-			return v, nil
 		}
-		return nil, nil
+		return v, nil
 	}
 
 	// Get map[string]interface{} with lower case keys from parsed descritor
@@ -540,65 +523,69 @@ func (b *Builder) build(am map[string]interface{}, iparent IPanel) (IPanel, erro
 	return pan, nil
 }
 
-// setAttribs sets common attributes from the description to the specified panel
-// The attributes which are set can be specified by the specified bitmask.
-func (b *Builder) setAttribs(am map[string]interface{}, ipan IPanel, attr uint) error {
+// SetAttribs sets common attributes from the description to the specified panel
+func (b *Builder) SetAttribs(am map[string]interface{}, ipan IPanel) error {
 
 	panel := ipan.GetPanel()
 	// Set optional position
-	if attr&aPOS != 0 && am[AttribPosition] != nil {
+	if am[AttribPosition] != nil {
 		va := am[AttribPosition].([]float32)
 		panel.SetPosition(va[0], va[1])
 	}
 
 	// Set optional panel width
-	if attr&aSIZE != 0 && am[AttribWidth] != nil {
+	if am[AttribWidth] != nil {
 		panel.SetWidth(am[AttribWidth].(float32))
 	}
 
 	// Sets optional panel height
-	if attr&aSIZE != 0 && am[AttribHeight] != nil {
+	if am[AttribHeight] != nil {
 		panel.SetHeight(am[AttribHeight].(float32))
 	}
 
 	// Set optional margin sizes
-	if attr&aMARGINS != 0 && am[AttribMargins] != nil {
-		panel.SetMarginsFrom(am[AttribMargins].(*BorderSizes))
+	if am[AttribMargins] != nil {
+		panel.SetMarginsFrom(am[AttribMargins].(*RectBounds))
 	}
 
 	// Set optional border sizes
-	if attr&aBORDERS != 0 && am[AttribBorders] != nil {
-		panel.SetBordersFrom(am[AttribBorders].(*BorderSizes))
+	if am[AttribBorders] != nil {
+		panel.SetBordersFrom(am[AttribBorders].(*RectBounds))
 	}
 
 	// Set optional border color
-	if attr&aBORDERCOLOR != 0 && am[AttribBorderColor] != nil {
+	if am[AttribBorderColor] != nil {
 		panel.SetBordersColor4(am[AttribBorderColor].(*math32.Color4))
 	}
 
 	// Set optional paddings sizes
-	if attr&aPADDINGS != 0 && am[AttribPaddings] != nil {
-		panel.SetPaddingsFrom(am[AttribPaddings].(*BorderSizes))
+	if am[AttribPaddings] != nil {
+		panel.SetPaddingsFrom(am[AttribPaddings].(*RectBounds))
 	}
 
 	// Set optional panel color
-	if attr&aCOLOR != 0 && am[AttribColor] != nil {
+	if am[AttribColor] != nil {
 		panel.SetColor4(am[AttribColor].(*math32.Color4))
 	}
 
-	if attr&aNAME != 0 && am[AttribName] != nil {
+	if am[AttribName] != nil {
 		panel.SetName(am[AttribName].(string))
 	}
 
-	if attr&aVISIBLE != 0 && am[AttribVisible] != nil {
+	if am[AttribVisible] != nil {
 		panel.SetVisible(am[AttribVisible].(bool))
 	}
 
-	if attr&aENABLED != 0 && am[AttribEnabled] != nil {
+	if am[AttribEnabled] != nil {
 		panel.SetEnabled(am[AttribEnabled].(bool))
 	}
-	if attr&aRENDER != 0 && am[AttribRender] != nil {
+
+	if am[AttribRender] != nil {
 		panel.SetRenderable(am[AttribRender].(bool))
+	}
+
+	if am[AttribUserData] != nil {
+		panel.SetUserData(am[AttribUserData])
 	}
 
 	// Sets optional layout (must pass IPanel not *Panel)
@@ -978,10 +965,10 @@ func AttribCheckBorderSizes(b *Builder, am map[string]interface{}, fname string)
 		return nil
 	}
 	if len(va) == 1 {
-		am[fname] = &BorderSizes{va[0], va[0], va[0], va[0]}
+		am[fname] = &RectBounds{va[0], va[0], va[0], va[0]}
 		return nil
 	}
-	am[fname] = &BorderSizes{va[0], va[1], va[2], va[3]}
+	am[fname] = &RectBounds{va[0], va[1], va[2], va[3]}
 	return nil
 }
 
@@ -1027,10 +1014,8 @@ func AttribCheckFloat(b *Builder, am map[string]interface{}, fname string) error
 	case float64:
 		am[fname] = float32(n)
 		return nil
-	default:
-		return b.err(am, fname, fmt.Sprintf("Not a number:%T", v))
 	}
-	return nil
+	return b.err(am, fname, fmt.Sprintf("Not a number:%T", v))
 }
 
 // AttribCheckInt checks and convert attribute to int
@@ -1075,6 +1060,12 @@ func AttribCheckBool(b *Builder, am map[string]interface{}, fname string) error 
 		return b.err(am, fname, "Not a bool")
 	}
 	am[fname] = bv
+	return nil
+}
+
+// AttribCheckInterface accepts any attribute value
+func AttribCheckInterface(b *Builder, am map[string]interface{}, fname string) error {
+
 	return nil
 }
 

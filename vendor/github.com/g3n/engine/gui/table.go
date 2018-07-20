@@ -16,16 +16,17 @@ import (
 )
 
 const (
-	// Name of the event generated when the table is right or left clicked
+	// OnTableClick is the event generated when the table is right or left clicked
 	// Parameter is TableClickEvent
 	OnTableClick = "onTableClick"
-	// Name of the event generated when the table row count changes (no parameters)
+	// OnTableRowCount is the event generated when the table row count changes (no parameters)
 	OnTableRowCount = "onTableRowCount"
 )
 
 // TableSortType is the type used to specify the sort method for a table column
 type TableSortType int
 
+// The various sorting types
 const (
 	TableSortNone TableSortType = iota
 	TableSortString
@@ -36,9 +37,9 @@ const (
 type TableSelType int
 
 const (
-	// Single row selection mode (default)
-	TableSelSingleRow = iota
-	// Multiple row selection mode
+	// TableSelSingleRow is the single row selection mode (default)
+	TableSelSingleRow TableSelType = iota
+	// TableSelMultiRow is the multiple row selection mode
 	TableSelMultiRow
 )
 
@@ -106,55 +107,31 @@ type TableCell struct {
 type TableFormatFunc func(cell TableCell) string
 
 // TableHeaderStyle describes the style of the table header
-type TableHeaderStyle struct {
-	Border      BorderSizes
-	Paddings    BorderSizes
-	BorderColor math32.Color4
-	BgColor     math32.Color
-	FgColor     math32.Color
-}
+type TableHeaderStyle BasicStyle
 
 // TableRowStyle describes the style of the table row
-type TableRowStyle struct {
-	Border      BorderSizes
-	Paddings    BorderSizes
-	BorderColor math32.Color4
-	BgColor     math32.Color
-	FgColor     math32.Color
-}
-
-// TableRowStyles describes all styles for the table row
-type TableRowStyles struct {
-	Normal   TableRowStyle
-	Selected TableRowStyle
-}
+type TableRowStyle BasicStyle
 
 // TableStatusStyle describes the style of the table status line panel
-type TableStatusStyle struct {
-	Border      BorderSizes
-	Paddings    BorderSizes
-	BorderColor math32.Color4
-	BgColor     math32.Color
-	FgColor     math32.Color
-}
+type TableStatusStyle BasicStyle
 
 // TableResizerStyle describes the style of the table resizer panel
 type TableResizerStyle struct {
 	Width       float32
-	Border      BorderSizes
+	Border      RectBounds
 	BorderColor math32.Color4
 	BgColor     math32.Color4
 }
 
 // TableStyles describes all styles of the table header and rows
 type TableStyles struct {
-	Header    *TableHeaderStyle
-	RowEven   *TableRowStyle
-	RowOdd    *TableRowStyle
-	RowCursor *TableRowStyle
-	RowSel    *TableRowStyle
-	Status    *TableStatusStyle
-	Resizer   *TableResizerStyle
+	Header    TableHeaderStyle
+	RowEven   TableRowStyle
+	RowOdd    TableRowStyle
+	RowCursor TableRowStyle
+	RowSel    TableRowStyle
+	Status    TableStatusStyle
+	Resizer   TableResizerStyle
 }
 
 // TableClickEvent describes a mouse click event over a table
@@ -259,7 +236,7 @@ func NewTable(width, height float32, cols []TableColumn) (*Table, error) {
 		c.resize = cdesc.Resize
 		// Adds optional sort icon
 		if c.sort != TableSortNone {
-			c.ricon = NewLabel(string(tableSortedNoneIcon), true)
+			c.ricon = NewIcon(string(tableSortedNoneIcon))
 			c.Add(c.ricon)
 			c.ricon.Subscribe(OnMouseDown, func(evname string, ev interface{}) {
 				t.onRicon(evname, c)
@@ -818,8 +795,8 @@ func (t *Table) onCursor(evname string, ev interface{}) {
 func (t *Table) onCursorPos(evname string, ev interface{}) {
 
 	// Convert mouse window coordinates to table content coordinates
-	kev := ev.(*window.CursorEvent)
-	cx, _ := t.ContentCoords(kev.Xpos, kev.Ypos)
+	cev := ev.(*window.CursorEvent)
+	cx, _ := t.ContentCoords(cev.Xpos, cev.Ypos)
 
 	// If user is dragging the resizer, updates its position
 	if t.resizing {
@@ -1253,7 +1230,7 @@ func (t *Table) recalcHeader() {
 				continue
 			}
 			// There is space available and if column is expandable,
-			// expands it proportionaly to the other expandable columns
+			// expands it proportionally to the other expandable columns
 			factor := c.expand / totalExpand
 			w := factor * wspace
 			c.SetWidth(c.Width() + w)
@@ -1541,7 +1518,7 @@ func (t *Table) onVScrollBar(evname string, ev interface{}) {
 }
 
 // calcMaxFirst calculates the maximum index of the first visible row
-// such as the remaing rows fits completely inside the table
+// such as the remaining rows fits completely inside the table
 // It is used when scrolling the table vertically
 func (t *Table) calcMaxFirst() int {
 
@@ -1569,7 +1546,7 @@ func (t *Table) calcMaxFirst() int {
 func (t *Table) updateRowStyle(ri int) {
 
 	row := t.rows[ri]
-	var trs *TableRowStyle
+	var trs TableRowStyle
 	if ri == t.rowCursor {
 		trs = t.styles.RowCursor
 	} else if row.selected {
@@ -1581,24 +1558,18 @@ func (t *Table) updateRowStyle(ri int) {
 			trs = t.styles.RowOdd
 		}
 	}
-	t.applyRowStyle(row, trs)
+	t.applyRowStyle(row, &trs)
 }
 
 // applyHeaderStyle applies style to the specified table header
 // the last header panel does not the right border.
 func (t *Table) applyHeaderStyle(h *Panel, last bool) {
 
-	s := t.styles.Header
-	borders := s.Border
-	if !last {
-		h.SetBordersFrom(&borders)
-	} else {
-		borders.Right = 0
-		h.SetBordersFrom(&borders)
+	styleCopy := t.styles.Header.PanelStyle
+	if last {
+		styleCopy.Border.Right = 0
 	}
-	h.SetBordersColor4(&s.BorderColor)
-	h.SetPaddingsFrom(&s.Paddings)
-	h.SetColor(&s.BgColor)
+	h.ApplyStyle(&styleCopy)
 }
 
 // applyRowStyle applies the specified style to all cells for the specified table row
@@ -1606,10 +1577,7 @@ func (t *Table) applyRowStyle(trow *tableRow, trs *TableRowStyle) {
 
 	for i := 0; i < len(trow.cells); i++ {
 		cell := trow.cells[i]
-		cell.SetBordersFrom(&trs.Border)
-		cell.SetBordersColor4(&trs.BorderColor)
-		cell.SetPaddingsFrom(&trs.Paddings)
-		cell.SetColor(&trs.BgColor)
+		cell.ApplyStyle(&trs.PanelStyle)
 	}
 }
 
@@ -1617,10 +1585,7 @@ func (t *Table) applyRowStyle(trow *tableRow, trs *TableRowStyle) {
 func (t *Table) applyStatusStyle() {
 
 	s := t.styles.Status
-	t.statusPanel.SetBordersFrom(&s.Border)
-	t.statusPanel.SetBordersColor4(&s.BorderColor)
-	t.statusPanel.SetPaddingsFrom(&s.Paddings)
-	t.statusPanel.SetColor(&s.BgColor)
+	t.statusPanel.ApplyStyle(&s.PanelStyle)
 }
 
 // applyResizerStyle applies the status style
@@ -1651,9 +1616,8 @@ func (ts tableSortString) Less(i, j int) bool {
 	sj := fmt.Sprintf(ts.format, vj)
 	if ts.asc {
 		return si < sj
-	} else {
-		return sj < si
 	}
+	return sj < si
 }
 
 // tableSortNumber is an internal type implementing the sort.Interface
@@ -1674,9 +1638,8 @@ func (ts tableSortNumber) Less(i, j int) bool {
 	nj := cv2f64(vj)
 	if ts.asc {
 		return ni < nj
-	} else {
-		return nj < ni
 	}
+	return nj < ni
 }
 
 // Try to convert an interface value to a float64 number

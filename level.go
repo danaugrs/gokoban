@@ -235,6 +235,10 @@ func NewLevel(g *GokobanGame, ld *LevelData, ls *LevelStyle, cam *camera.Perspec
 						// if block below, change texture
 						if b, ok := ld.grid[i][j][k-1].obj.(*Block); ok {
 							b.mesh.AddGroupMaterial(ls.padMaterial, 2)
+							a := 2
+							if a > 0 {
+
+							}
 						}
 						// TODO (maybe)
 						// else if blocks around, use texture on all existing sides

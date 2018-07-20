@@ -10,6 +10,7 @@ import (
 	"math"
 )
 
+// Torus represents a torus geometry
 type Torus struct {
 	Geometry                // embedded geometry
 	Radius          float64 // Torus radius
@@ -19,6 +20,7 @@ type Torus struct {
 	Arc             float64 // Central angle
 }
 
+// NewTorus returns a pointer to a new torus geometry
 func NewTorus(radius, tube float64, radialSegments, tubularSegments int, arc float64) *Torus {
 
 	t := new(Torus)
@@ -67,9 +69,9 @@ func NewTorus(radius, tube float64, radialSegments, tubularSegments int, arc flo
 	}
 
 	t.SetIndices(indices)
-	t.AddVBO(gls.NewVBO().AddAttrib("VertexPosition", 3).SetBuffer(positions))
-	t.AddVBO(gls.NewVBO().AddAttrib("VertexNormal", 3).SetBuffer(normals))
-	t.AddVBO(gls.NewVBO().AddAttrib("VertexTexcoord", 2).SetBuffer(uvs))
+	t.AddVBO(gls.NewVBO(positions).AddAttrib(gls.VertexPosition))
+	t.AddVBO(gls.NewVBO(normals).AddAttrib(gls.VertexNormal))
+	t.AddVBO(gls.NewVBO(uvs).AddAttrib(gls.VertexTexcoord))
 
 	return t
 }

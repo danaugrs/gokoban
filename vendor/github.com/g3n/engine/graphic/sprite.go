@@ -12,6 +12,7 @@ import (
 	"github.com/g3n/engine/math32"
 )
 
+// Sprite is a potentially animated image positioned in space that always faces the camera.
 type Sprite struct {
 	Graphic             // Embedded graphic
 	uniMVPM gls.Uniform // Model view projection matrix uniform location cache
@@ -42,10 +43,9 @@ func NewSprite(width, height float32, imat material.IMaterial) *Sprite {
 	// Set geometry buffers
 	geom.SetIndices(indices)
 	geom.AddVBO(
-		gls.NewVBO().
-			AddAttrib("VertexPosition", 3).
-			AddAttrib("VertexTexcoord", 2).
-			SetBuffer(positions),
+		gls.NewVBO(positions).
+			AddAttrib(gls.VertexPosition).
+			AddAttrib(gls.VertexTexcoord),
 	)
 
 	s.Graphic.Init(geom, gls.TRIANGLES)
@@ -55,6 +55,7 @@ func NewSprite(width, height float32, imat material.IMaterial) *Sprite {
 	return s
 }
 
+// RenderSetup sets up the rendering of the sprite.
 func (s *Sprite) RenderSetup(gs *gls.GLS, rinfo *core.RenderInfo) {
 
 	// Calculates model view matrix
@@ -73,12 +74,12 @@ func (s *Sprite) RenderSetup(gs *gls.GLS, rinfo *core.RenderInfo) {
 	rotation.X = 0
 	rotation.Y = 0
 	quaternion.SetFromEuler(&rotation)
-	var mvm_new math32.Matrix4
-	mvm_new.Compose(&position, &quaternion, &scale)
+	var mvmNew math32.Matrix4
+	mvmNew.Compose(&position, &quaternion, &scale)
 
 	// Calculates final MVP and updates uniform
 	var mvpm math32.Matrix4
-	mvpm.MultiplyMatrices(&rinfo.ProjMatrix, &mvm_new)
+	mvpm.MultiplyMatrices(&rinfo.ProjMatrix, &mvmNew)
 	location := s.uniMVPM.Location(gs)
 	gs.UniformMatrix4fv(location, 1, false, &mvpm[0])
 }
@@ -112,7 +113,7 @@ func (s *Sprite) Raycast(rc *core.Raycaster, intersects *[]core.Intersect) {
 
 	// Get buffer with vertices and uvs
 	geom := s.GetGeometry()
-	vboPos := geom.VBO("VertexPosition")
+	vboPos := geom.VBO(gls.VertexPosition)
 	if vboPos == nil {
 		panic("sprite.Raycast(): VertexPosition VBO not found")
 	}

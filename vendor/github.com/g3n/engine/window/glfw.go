@@ -38,6 +38,8 @@ type glfwWindow struct {
 	lastY           int
 	lastWidth       int
 	lastHeight      int
+	scaleX          float64
+	scaleY          float64
 }
 
 // glfw manager singleton
@@ -62,9 +64,9 @@ func Glfw() (IWindowManager, error) {
 	glfw.WindowHint(glfw.OpenGLProfile, glfw.OpenGLCoreProfile)
 	glfw.WindowHint(glfw.Samples, 8)
 	// Sets OpenGL forward compatible context only for OSX because it is required for OSX.
-	// When this is set glLineWidth(width) only accepts width=1.0 and generates error
-	// for any other values although the spec says it should ignore non supported widths
-	// and generate error only when width <= 0.
+	// When this is set, glLineWidth(width) only accepts width=1.0 and generates an  error
+	// for any other values although the spec says it should ignore unsupported widths
+	// and generate an error only when width <= 0.
 	if runtime.GOOS == "darwin" {
 		glfw.WindowHint(glfw.OpenGLForwardCompatible, glfw.True)
 	}
@@ -120,6 +122,10 @@ func (m *glfwManager) CreateWindow(width, height int, title string, fullscreen b
 	w.mgr = m
 	w.Dispatcher.Initialize()
 
+	fbw, fbh := w.FramebufferSize()
+	w.scaleX = float64(fbw) / float64(width)
+	w.scaleY = float64(fbh) / float64(height)
+
 	// Set key callback to dispatch event
 	win.SetKeyCallback(func(x *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
 
@@ -155,12 +161,14 @@ func (m *glfwManager) CreateWindow(width, height int, title string, fullscreen b
 	win.SetMouseButtonCallback(func(x *glfw.Window, button glfw.MouseButton, action glfw.Action, mods glfw.ModifierKey) {
 
 		xpos, ypos := x.GetCursorPos()
+
 		w.mouseEv.W = w
 		w.mouseEv.Button = MouseButton(button)
 		w.mouseEv.Action = Action(action)
 		w.mouseEv.Mods = ModifierKey(mods)
-		w.mouseEv.Xpos = float32(xpos)
-		w.mouseEv.Ypos = float32(ypos)
+		w.mouseEv.Xpos = float32(xpos * w.scaleX)
+		w.mouseEv.Ypos = float32(ypos * w.scaleY)
+
 		if action == glfw.Press {
 			w.Dispatch(OnMouseDown, &w.mouseEv)
 			return
@@ -174,9 +182,12 @@ func (m *glfwManager) CreateWindow(width, height int, title string, fullscreen b
 	// Set window size callback to dispatch event
 	win.SetSizeCallback(func(x *glfw.Window, width int, height int) {
 
+		fbw, fbh := x.GetFramebufferSize()
 		w.sizeEv.W = w
 		w.sizeEv.Width = width
 		w.sizeEv.Height = height
+		w.scaleX = float64(fbw) / float64(width)
+		w.scaleY = float64(fbh) / float64(height)
 		w.Dispatch(OnWindowSize, &w.sizeEv)
 	})
 
@@ -193,8 +204,8 @@ func (m *glfwManager) CreateWindow(width, height int, title string, fullscreen b
 	win.SetCursorPosCallback(func(x *glfw.Window, xpos float64, ypos float64) {
 
 		w.cursorEv.W = w
-		w.cursorEv.Xpos = float32(xpos)
-		w.cursorEv.Ypos = float32(ypos)
+		w.cursorEv.Xpos = float32(xpos * w.scaleX)
+		w.cursorEv.Ypos = float32(ypos * w.scaleY)
 		w.Dispatch(OnCursor, &w.cursorEv)
 	})
 
@@ -276,7 +287,19 @@ func (w *glfwWindow) SwapBuffers() {
 	w.win.SwapBuffers()
 }
 
-// Size returns this window size in screen coordinates
+// FramebufferSize returns framebuffer size of this window
+func (w *glfwWindow) FramebufferSize() (width int, height int) {
+
+	return w.win.GetFramebufferSize()
+}
+
+// Scale returns this window's DPI scale factor (FramebufferSize / Size)
+func (w *glfwWindow) Scale() (x float64, y float64) {
+
+	return w.scaleX, w.scaleY
+}
+
+// Size returns this window's size in screen coordinates
 func (w *glfwWindow) Size() (width int, height int) {
 
 	return w.win.GetSize()
@@ -338,4 +361,18 @@ func (w *glfwWindow) SetStandardCursor(cursor StandardCursor) {
 	default:
 		panic("Invalid cursor")
 	}
+}
+
+// SetInputMode changes specified input to specified state
+// Reference: http://www.glfw.org/docs/latest/group__input.html#gaa92336e173da9c8834558b54ee80563b
+func (w *glfwWindow) SetInputMode(mode InputMode, state int) {
+
+	w.win.SetInputMode(glfw.InputMode(mode), state)
+}
+
+// SetCursorPos sets cursor position in window coordinates
+// Reference: http://www.glfw.org/docs/latest/group__input.html#ga04b03af936d906ca123c8f4ee08b39e7
+func (w *glfwWindow) SetCursorPos(xpos, ypos float64) {
+
+	w.win.SetCursorPos(xpos, ypos)
 }

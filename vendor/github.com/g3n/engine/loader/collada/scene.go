@@ -14,6 +14,7 @@ import (
 	"strings"
 )
 
+// NewScene returns a new collada empty scene
 func (d *Decoder) NewScene() (core.INode, error) {
 
 	sc := d.dom.Scene
@@ -116,7 +117,7 @@ func (d *Decoder) newNode(cnode *Node) (core.INode, error) {
 			// Get math32.Matrix from the matrix data and
 			// transpose to a column matrix
 			var m math32.Matrix4
-			m.FromArray(te.Data)
+			m.FromArray(te.Data[:], 0)
 			m.Transpose()
 			// Decompose the transformation matrix
 			var position math32.Vector3

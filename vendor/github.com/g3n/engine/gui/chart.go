@@ -101,6 +101,7 @@ func (ch *Chart) SetTitle(title string, size float64) {
 	// Sets title
 	if ch.title == nil {
 		ch.title = NewLabel(title)
+		ch.title.SetColor4(math32.NewColor4("black"))
 		ch.Add(ch.title)
 	}
 	ch.title.SetText(title)
@@ -170,6 +171,7 @@ func (ch *Chart) SetScaleX(lines int, color *math32.Color) {
 	value := ch.firstX
 	for i := 0; i < lines; i++ {
 		l := NewLabel(fmt.Sprintf(ch.formatX, value))
+		l.SetColor4(math32.NewColor4("black"))
 		l.SetFontSize(ch.fontSizeX)
 		ch.Add(l)
 		ch.labelsX = append(ch.labelsX, l)
@@ -220,6 +222,7 @@ func (ch *Chart) SetScaleY(lines int, color *math32.Color) {
 	step := (ch.maxY - ch.minY) / float32(lines-1)
 	for i := 0; i < lines; i++ {
 		l := NewLabel(fmt.Sprintf(ch.formatY, value))
+		l.SetColor4(math32.NewColor4("black"))
 		l.SetFontSize(ch.fontSizeY)
 		ch.Add(l)
 		ch.labelsY = append(ch.labelsY, l)
@@ -282,7 +285,7 @@ func (ch *Chart) SetRangeYauto(auto bool) {
 	ch.updateGraphs()
 }
 
-// Returns the current y range
+// RangeY returns the current y range
 func (ch *Chart) RangeY() (minY, maxY float32) {
 
 	return ch.minY, ch.maxY
@@ -473,7 +476,7 @@ func newChartScaleX(chart *Chart, lines int, color *math32.Color) *chartScaleX {
 
 	// Creates geometry and adds VBO
 	geom := geometry.NewGeometry()
-	geom.AddVBO(gls.NewVBO().AddAttrib("VertexPosition", 3).SetBuffer(positions))
+	geom.AddVBO(gls.NewVBO(positions).AddAttrib(gls.VertexPosition))
 
 	// Initializes the panel graphic
 	gr := graphic.NewGraphic(geom, gls.LINES)
@@ -558,7 +561,7 @@ func newChartScaleY(chart *Chart, lines int, color *math32.Color) *chartScaleY {
 
 	// Creates geometry and adds VBO
 	geom := geometry.NewGeometry()
-	geom.AddVBO(gls.NewVBO().AddAttrib("VertexPosition", 3).SetBuffer(positions))
+	geom.AddVBO(gls.NewVBO(positions).AddAttrib(gls.VertexPosition))
 
 	// Initializes the panel with this graphic
 	gr := graphic.NewGraphic(geom, gls.LINES)
@@ -601,7 +604,8 @@ func (sy *chartScaleY) RenderSetup(gs *gls.GLS, rinfo *core.RenderInfo) {
 }
 
 //
-// Graph
+// Graph is the GUI element that represents a single plotted function.
+// A Chart has an array of Graph objects.
 //
 type Graph struct {
 	Panel                   // Embedded panel
@@ -625,9 +629,8 @@ func newGraph(chart *Chart, color *math32.Color, data []float32) *Graph {
 
 	// Creates geometry and adds VBO with positions
 	geom := geometry.NewGeometry()
-	lg.vbo = gls.NewVBO().AddAttrib("VertexPosition", 3)
 	lg.positions = math32.NewArrayF32(0, 0)
-	lg.vbo.SetBuffer(lg.positions)
+	lg.vbo = gls.NewVBO(lg.positions).AddAttrib(gls.VertexPosition)
 	geom.AddVBO(lg.vbo)
 
 	// Initializes the panel with this graphic

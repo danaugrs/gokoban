@@ -53,6 +53,7 @@ func NewStandardStyle() *LevelStyle {
 
 	s.padMaterial = material.NewPhong(math32.NewColor("white"))
 	s.padMaterial.AddTexture(newTexture("img/pad.png"))
+	s.padMaterial.SetTransparent(true) // Makes this material be displayed in front of blockMaterial
 
 	s.boxMaterialRed = material.NewPhong(math32.NewColor("white"))
 	s.boxMaterialRed.AddTexture(newTexture("img/crate_red.png"))
@@ -65,7 +66,7 @@ func NewStandardStyle() *LevelStyle {
 
 	// Create functions that return a cube mesh using the provided material, reusing the same cube geometry
 
-	sharedCubeGeom := geometry.NewBox(1, 1, 1, 1, 1, 1)
+	sharedCubeGeom := geometry.NewCube(1)
 	makeCubeWithMaterial := func(mat *material.Phong) func() *graphic.Mesh {
 		return func() *graphic.Mesh { return graphic.NewMesh(sharedCubeGeom, mat) }
 	}

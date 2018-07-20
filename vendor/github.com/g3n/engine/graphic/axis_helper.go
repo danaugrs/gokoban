@@ -11,10 +11,12 @@ import (
 	"github.com/g3n/engine/math32"
 )
 
+// AxisHelper is the visual representation of the three axes
 type AxisHelper struct {
 	Lines
 }
 
+// NewAxisHelper returns a pointer to a new AxisHelper object
 func NewAxisHelper(size float32) *AxisHelper {
 
 	axis := new(AxisHelper)
@@ -34,12 +36,11 @@ func NewAxisHelper(size float32) *AxisHelper {
 		0, 1, 0, 0.6, 1, 0,
 		0, 0, 1, 0, 0.6, 1,
 	)
-	geom.AddVBO(gls.NewVBO().AddAttrib("VertexPosition", 3).SetBuffer(positions))
-	geom.AddVBO(gls.NewVBO().AddAttrib("VertexColor", 3).SetBuffer(colors))
+	geom.AddVBO(gls.NewVBO(positions).AddAttrib(gls.VertexPosition))
+	geom.AddVBO(gls.NewVBO(colors).AddAttrib(gls.VertexColor))
 
 	// Creates line material
 	mat := material.NewBasic()
-	mat.SetLineWidth(2.0)
 
 	// Initialize lines with the specified geometry and material
 	axis.Lines.Init(geom, mat)

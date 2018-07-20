@@ -12,6 +12,7 @@ import (
 	"github.com/g3n/engine/math32"
 )
 
+// Point is an omnidirectional light source
 type Point struct {
 	core.Node              // Embedded node
 	color     math32.Color // Light color
@@ -103,7 +104,7 @@ func (lp *Point) RenderSetup(gs *gls.GLS, rinfo *core.RenderInfo, idx int) {
 	lp.WorldPosition(&pos)
 	pos4 := math32.Vector4{pos.X, pos.Y, pos.Z, 1.0}
 	pos4.ApplyMatrix4(&rinfo.ViewMatrix)
-	lp.udata.position.X = pos4.X
+	lp.udata.position.X = pos4.X // TODO SetFromVec4 ?
 	lp.udata.position.Y = pos4.Y
 	lp.udata.position.Z = pos4.Z
 

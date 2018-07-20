@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Package collada
 package collada
 
 import (
@@ -111,6 +112,7 @@ type Contributor struct {
 	SourceData    string
 }
 
+// Dump prints out information about the Contributor
 func (c *Contributor) Dump(out io.Writer, indent int) {
 
 	fmt.Fprintf(out, "%sContributor:\n", sIndent(indent))
@@ -148,6 +150,7 @@ type Asset struct {
 	UpAxis      string
 }
 
+// Dump prints out information about the Asset
 func (a *Asset) Dump(out io.Writer, indent int) {
 
 	fmt.Fprintf(out, "%sAsset:\n", sIndent(indent))
@@ -165,6 +168,7 @@ type Scene struct {
 	InstanceVisualScene *InstanceVisualScene
 }
 
+// Dump prints out information about the Scene
 func (s *Scene) Dump(out io.Writer, indent int) {
 
 	fmt.Fprintf(out, "%sScene:\n", sIndent(indent))
@@ -181,6 +185,7 @@ type InstanceVisualScene struct {
 	Url  string
 }
 
+// Dump prints out information about the InstanceVisualScene
 func (ivs *InstanceVisualScene) Dump(out io.Writer, indent int) {
 
 	if ivs == nil {
@@ -350,7 +355,6 @@ func (d *Decoder) decAsset(assetStart xml.StartElement, a *Asset) error {
 			continue
 		}
 	}
-	return nil
 }
 
 func (d *Decoder) decScene(start xml.StartElement, dom *Collada) error {
@@ -369,7 +373,6 @@ func (d *Decoder) decScene(start xml.StartElement, dom *Collada) error {
 			continue
 		}
 	}
-	return nil
 }
 
 func (d *Decoder) decInstanceVisualScene(start xml.StartElement, s *Scene) error {

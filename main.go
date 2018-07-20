@@ -535,6 +535,7 @@ func (g *GokobanGame) LoadSkyBox() {
 	if err != nil {
 		panic(err)
 	}
+	skybox.SetRenderOrder(-1) // The skybox should always be rendered first
 
 	// For each skybox face - set the material to not use lights and to have emissive color.
 	brightness := float32(0.6)
@@ -606,10 +607,9 @@ func NewArrowGeometry(p float32) *geometry.Geometry {
 	// Creates geometry
 	geom := geometry.NewGeometry()
 	geom.SetIndices(indices)
-	geom.AddVBO(gls.NewVBO().
-		AddAttrib("VertexPosition", 3).
-		AddAttrib("VertexNormal", 3).
-		SetBuffer(positions),
+	geom.AddVBO(gls.NewVBO(positions).
+		AddAttrib(gls.VertexPosition).
+		AddAttrib(gls.VertexNormal),
 	)
 
 	return geom
@@ -653,7 +653,7 @@ func (g *GokobanGame) CreateArrowNode() {
 	arrowMaterialB := material.NewStandard(math32.NewColor("black"))
 	arrowMaterialB.SetSide(material.SideDouble)
 	arrowGeomB := NewArrowGeometry(0.5)
-	positions := arrowGeomB.VBO("VertexPosition")
+	positions := arrowGeomB.VBO(gls.VertexPosition)
 	buffer := math32.NewArrayF32(0, 20)
 	buffer.Append(
 		-0.1, 0.35, 0, 0, 0, 1,
@@ -758,84 +758,38 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	log.Debug("Creating GUI...")
 
 	transparent := math32.Color4{0, 0, 0, 0}
-	blackTextColor := math32.Color{0.3, 0.3, 0.3}
+	blackTextColor := math32.Color4{0.3, 0.3, 0.3, 1.0}
 	creditsColor := math32.Color{0.6, 0.6, 0.6}
 	sliderColor := math32.Color4{0.628, 0.882, 0.1, 1}
 	sliderColorOff := math32.Color4{0.82, 0.48, 0.48, 1}
 	sliderColorOver := math32.Color4{0.728, 0.982, 0.2, 1}
 	sliderBorderColor := math32.Color4{0.71, 0.482, 0.26, 1}
 
-	sliderBorder := gui.BorderSizes{3, 3, 3, 3}
-	zeroBorder := gui.BorderSizes{0, 0, 0, 0}
+	sliderBorder := gui.RectBounds{3, 3, 3, 3}
+	//zeroBorder := gui.RectBounds{0, 0, 0, 0}
 
-	gui.StyleDefault().ImageButton = gui.ImageButtonStyles{
-		Normal: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
-		},
-		Over: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
-		},
-		Focus: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
-		},
-		Pressed: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
-		},
-		Disabled: gui.ImageButtonStyle{
-			Border:      zeroBorder,
-			Paddings:    zeroBorder,
-			BorderColor: transparent,
-			BgColor:     transparent,
-			FgColor:     blackTextColor,
-		},
-	}
+	s := gui.StyleDefault()
+	s.ImageButton = gui.ImageButtonStyles{}
+	s.ImageButton.Normal = gui.ImageButtonStyle{}
+	s.ImageButton.Normal.BgColor = transparent
+	s.ImageButton.Normal.FgColor = blackTextColor
+	s.ImageButton.Over = s.ImageButton.Normal
+	s.ImageButton.Focus = s.ImageButton.Normal
+	s.ImageButton.Pressed = s.ImageButton.Normal
+	s.ImageButton.Disabled = s.ImageButton.Normal
 
-	gui.StyleDefault().Slider = gui.SliderStyles{
-		Normal: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
-			FgColor:     sliderColor,
-		},
-		Over: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
-			FgColor:     sliderColorOver,
-		},
-		Focus: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.3, 0.3, 0.3, 1},
-			FgColor:     sliderColorOver,
-		},
-		Disabled: gui.SliderStyle{
-			Border:      sliderBorder,
-			BorderColor: sliderBorderColor,
-			Paddings:    gui.BorderSizes{0, 0, 0, 0},
-			BgColor:     math32.Color4{0.2, 0.2, 0.2, 1},
-			FgColor:     sliderColorOff,
-		},
-	}
+	s.Slider = gui.SliderStyles{}
+	s.Slider.Normal = gui.SliderStyle{}
+	s.Slider.Normal.Border = sliderBorder
+	s.Slider.Normal.BorderColor = sliderBorderColor
+	s.Slider.Normal.BgColor = math32.Color4{0.2, 0.2, 0.2, 1}
+	s.Slider.Normal.FgColor = sliderColor
+	s.Slider.Over = s.Slider.Normal
+	s.Slider.Over.BgColor = math32.Color4{0.3, 0.3, 0.3, 1}
+	s.Slider.Over.FgColor = sliderColorOver
+	s.Slider.Focus = s.Slider.Over
+	s.Slider.Disabled = s.Slider.Normal
+	s.Slider.Disabled.FgColor = sliderColorOff
 
 	var err error
 
@@ -894,7 +848,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.levelLabel, err = gui.NewImageButton("gui/panel.png")
 	g.levelLabel.SetImage(gui.ButtonDisabled, "gui/panel.png")
 	g.levelLabel.SetColor(&math32.Color{0.8, 0.8, 0.8})
-	g.levelLabel.SetText("TEST")
+	g.levelLabel.SetText("Level")
 	g.levelLabel.SetFontSize(35)
 	g.levelLabel.SetEnabled(false)
 	header.Add(g.levelLabel)
@@ -991,7 +945,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.instructions1.SetFontSize(28)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.instructions1.SetWidth(g.root.ContentWidth())
-		g.instructions1.SetPositionY(3 * g.instructions1.ContentHeight())
+		g.instructions1.SetPositionY(4 * g.instructions1.ContentHeight())
 	})
 	g.controls.Add(g.instructions1)
 
@@ -1000,7 +954,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.instructions2.SetFontSize(28)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.instructions2.SetWidth(g.root.ContentWidth())
-		g.instructions2.SetPositionY(4 * g.instructions2.ContentHeight())
+		g.instructions2.SetPositionY(5 * g.instructions2.ContentHeight())
 	})
 	g.controls.Add(g.instructions2)
 
@@ -1019,8 +973,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.instructionsRestart.SetColor(&creditsColor)
 	g.instructionsRestart.SetFontSize(20)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
-		//g.instructions3.SetWidth(g.root.ContentWidth())
-		g.instructionsRestart.SetPosition(buttonInstructionsPad, g.root.ContentHeight()-5.5*g.instructionsRestart.ContentHeight())
+		g.instructionsRestart.SetPosition(buttonInstructionsPad, g.root.ContentHeight()-6*g.instructionsRestart.ContentHeight())
 	})
 	g.controls.Add(g.instructionsRestart)
 
@@ -1028,8 +981,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.instructionsMenu.SetColor(&creditsColor)
 	g.instructionsMenu.SetFontSize(20)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
-		//g.instructions3.SetWidth(g.root.ContentWidth())
-		g.instructionsMenu.SetPosition(g.root.ContentWidth()-g.instructionsMenu.ContentWidth()-buttonInstructionsPad, g.root.ContentHeight()-5.5*g.instructionsMenu.ContentHeight())
+		g.instructionsMenu.SetPosition(g.root.ContentWidth()-g.instructionsMenu.ContentWidth()-buttonInstructionsPad, g.root.ContentHeight()-6*g.instructionsMenu.ContentHeight())
 	})
 	g.controls.Add(g.instructionsMenu)
 
@@ -1050,6 +1002,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	topRowLayout := gui.NewHBoxLayout()
 	topRowLayout.SetAlignH(gui.AlignWidth)
 	topRow.SetLayout(topRowLayout)
+	alignCenterVerical := gui.HBoxLayoutParams{Expand: 0, AlignV: gui.AlignCenter}
 
 	// Music Control
 	musicControl := gui.NewPanel(130, 100)
@@ -1077,7 +1030,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 		g.SetMusicVolume(g.musicSlider.Value())
 	})
 	g.musicSlider.Subscribe(gui.OnCursorEnter, hoverSound)
-	g.musicSlider.SetMargins(5, 0, 30, 4)
+	g.musicSlider.SetLayoutParams(&alignCenterVerical)
 	musicControl.Add(g.musicSlider)
 
 	topRow.Add(musicControl)
@@ -1108,7 +1061,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 		g.SetSfxVolume(3 * g.sfxSlider.Value())
 	})
 	g.sfxSlider.Subscribe(gui.OnCursorEnter, hoverSound)
-	g.sfxSlider.SetMargins(5, 0, 30, 4)
+	g.sfxSlider.SetLayoutParams(&alignCenterVerical)
 	sfxControl.Add(g.sfxSlider)
 
 	topRow.Add(sfxControl)
@@ -1317,6 +1270,7 @@ func main() {
 
 	// Creates a renderer and adds default shaders
 	g.renderer = renderer.NewRenderer(g.gs)
+	//g.renderer.SetSortObjects(false)
 	err = g.renderer.AddDefaultShaders()
 	if err != nil {
 		panic(err)
@@ -1327,7 +1281,8 @@ func main() {
 	// The camera aspect ratio should be updated if the window is resized.
 	aspect := float32(width) / float32(height)
 	g.camera = camera.NewPerspective(65, aspect, 0.01, 1000)
-	g.camera.GetCamera().SetPosition(0, 4, 5)
+	g.camera.SetPosition(0, 4, 5)
+	g.camera.LookAt(&math32.Vector3{0, 0, 0})
 
 	// Create orbit control and set limits
 	g.orbitControl = control.NewOrbitControl(g.camera, g.win)

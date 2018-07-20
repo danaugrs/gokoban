@@ -5,11 +5,11 @@
 package gui
 
 import (
-	"github.com/g3n/engine/math32"
 	"github.com/g3n/engine/texture"
 	"github.com/g3n/engine/window"
 )
 
+// ImageButton represents an image button GUI element
 type ImageButton struct {
 	*Panel                                             // Embedded Panel
 	label       *Label                                 // Label panel
@@ -21,26 +21,22 @@ type ImageButton struct {
 	stateImages [ButtonDisabled + 1]*texture.Texture2D // array of images for each button state
 }
 
+// ButtonState specifies a button state.
 type ButtonState int
 
+// The possible button states.
 const (
 	ButtonNormal ButtonState = iota
 	ButtonOver
-	//ButtonFocus
 	ButtonPressed
 	ButtonDisabled
+	// ButtonFocus
 )
 
-// ImageButton style
-type ImageButtonStyle struct {
-	Border      BorderSizes
-	Paddings    BorderSizes
-	BorderColor math32.Color4
-	BgColor     math32.Color4
-	FgColor     math32.Color
-}
+// ImageButtonStyle contains the styling of an ImageButton.
+type ImageButtonStyle BasicStyle
 
-// All ImageButton styles
+// ImageButtonStyles contains one ImageButtonStyle for each possible ImageButton state.
 type ImageButtonStyles struct {
 	Normal   ImageButtonStyle
 	Over     ImageButtonStyle
@@ -117,7 +113,7 @@ func (b *ImageButton) SetIcon(icode string) {
 	b.iconLabel = true
 	if b.label == nil {
 		// Create icon
-		b.label = NewLabel(icode, true)
+		b.label = NewIcon(icode)
 		b.Panel.Add(b.label)
 	} else {
 		b.label.SetText(icode)
@@ -253,12 +249,9 @@ func (b *ImageButton) update() {
 // applyStyle applies the specified button style
 func (b *ImageButton) applyStyle(bs *ImageButtonStyle) {
 
-	b.SetBordersColor4(&bs.BorderColor)
-	b.SetBordersFrom(&bs.Border)
-	b.SetPaddingsFrom(&bs.Paddings)
-	b.SetColor4(&bs.BgColor)
+	b.Panel.ApplyStyle(&bs.PanelStyle)
 	if b.label != nil {
-		b.label.SetColor(&bs.FgColor)
+		b.label.SetColor4(&bs.FgColor)
 	}
 }
 

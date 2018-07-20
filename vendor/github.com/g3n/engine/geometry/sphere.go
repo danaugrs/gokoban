@@ -10,6 +10,7 @@ import (
 	"math"
 )
 
+// Sphere represents a sphere geometry
 type Sphere struct {
 	Geometry
 	Radius         float64
@@ -21,6 +22,7 @@ type Sphere struct {
 	ThetaLength    float64
 }
 
+// NewSphere returns a pointer to a new Sphere geometry object
 func NewSphere(radius float64, widthSegments, heightSegments int, phiStart, phiLength, thetaStart, thetaLength float64) *Sphere {
 
 	s := new(Sphere)
@@ -81,10 +83,19 @@ func NewSphere(radius float64, widthSegments, heightSegments int, phiStart, phiL
 	}
 
 	s.SetIndices(indices)
-	s.AddVBO(gls.NewVBO().AddAttrib("VertexPosition", 3).SetBuffer(positions))
-	s.AddVBO(gls.NewVBO().AddAttrib("VertexNormal", 3).SetBuffer(normals))
-	s.AddVBO(gls.NewVBO().AddAttrib("VertexTexcoord", 2).SetBuffer(uvs))
+	s.AddVBO(gls.NewVBO(positions).AddAttrib(gls.VertexPosition))
+	s.AddVBO(gls.NewVBO(normals).AddAttrib(gls.VertexNormal))
+	s.AddVBO(gls.NewVBO(uvs).AddAttrib(gls.VertexTexcoord))
 
-	//s.BoundingSphere = math32.NewSphere(math32.NewVector3(0, 0, 0), float32(radius))
+	r := float32(radius)
+
+	// Update bounding sphere
+	s.boundingSphere.Radius = 3
+	s.boundingSphereValid = true
+
+	// Update bounding box
+	s.boundingBox = math32.Box3{math32.Vector3{-r, -r, -r}, math32.Vector3{r, r, r}}
+	s.boundingBoxValid = true
+
 	return s
 }
