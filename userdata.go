@@ -10,7 +10,7 @@ import (
 )
 
 // The filepath of the file used to store the UserData instance via Gob
-const USER_DATA_FILEPATH string = "user.data"
+const USER_DATA_FILENAME string = "/user.data"
 
 // UserData stores all the information that persists between game sessions
 type UserData struct {
@@ -24,11 +24,11 @@ type UserData struct {
 }
 
 // NewUserData loads user data from file or creates a new object with default values if no file exists
-func NewUserData() *UserData {
+func NewUserData(dataDir string) *UserData {
 	ud := new(UserData)
 
 	// Try to read existing file
-	file, err := os.Open(USER_DATA_FILEPATH)
+	file, err := os.Open(dataDir + USER_DATA_FILENAME)
 	if err == nil {
 		decoder := gob.NewDecoder(file)
 		err = decoder.Decode(ud)
@@ -57,9 +57,9 @@ func NewUserData() *UserData {
 }
 
 // Save saves the current user data to the user data file, overwriting existing (old) data
-func (ud *UserData) Save() error {
+func (ud *UserData) Save(dataDir string) error {
 	log.Debug("Saving user data: %+v", ud)
-	newFile, err := os.Create(USER_DATA_FILEPATH)
+	newFile, err := os.Create(dataDir + USER_DATA_FILENAME)
 	if err == nil {
 		encoder := gob.NewEncoder(newFile)
 		err = encoder.Encode(&ud)

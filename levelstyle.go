@@ -30,7 +30,7 @@ type LevelStyle struct {
 }
 
 // NewStandardStyle returns a pointer to a LevelStyle object with standard values
-func NewStandardStyle() *LevelStyle {
+func NewStandardStyle(dataDir string) *LevelStyle {
 
 	s := new(LevelStyle)
 
@@ -49,20 +49,20 @@ func NewStandardStyle() *LevelStyle {
 	// Load textures and create materials
 
 	s.blockMaterial = material.NewPhong(math32.NewColor("white"))
-	s.blockMaterial.AddTexture(newTexture("img/floor.png"))
+	s.blockMaterial.AddTexture(newTexture(dataDir + "/img/floor.png"))
 
 	s.padMaterial = material.NewPhong(math32.NewColor("white"))
-	s.padMaterial.AddTexture(newTexture("img/pad.png"))
+	s.padMaterial.AddTexture(newTexture(dataDir + "/img/pad.png"))
 	s.padMaterial.SetTransparent(true) // Makes this material be displayed in front of blockMaterial
 
 	s.boxMaterialRed = material.NewPhong(math32.NewColor("white"))
-	s.boxMaterialRed.AddTexture(newTexture("img/crate_red.png"))
+	s.boxMaterialRed.AddTexture(newTexture(dataDir + "/img/crate_red.png"))
 
 	s.boxMaterialGreen = material.NewPhong(math32.NewColor("white"))
-	s.boxMaterialGreen.AddTexture(newTexture("img/crate_green2.png"))
+	s.boxMaterialGreen.AddTexture(newTexture(dataDir + "/img/crate_green2.png"))
 
 	s.elevatorMaterial = material.NewPhong(math32.NewColor("white"))
-	s.elevatorMaterial.AddTexture(newTexture("img/metal_diffuse.png"))
+	s.elevatorMaterial.AddTexture(newTexture(dataDir + "/img/metal_diffuse.png"))
 
 	// Create functions that return a cube mesh using the provided material, reusing the same cube geometry
 

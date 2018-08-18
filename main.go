@@ -29,6 +29,9 @@ import (
 	"runtime"
 	"strconv"
 	"time"
+	"os"
+	"strings"
+	"path/filepath"
 )
 
 //      ____       _         _
@@ -56,6 +59,7 @@ type GokobanGame struct {
 	scene        *core.Node
 	camera       *camera.Perspective
 	orbitControl *control.OrbitControl
+	dataDir      string
 
 	userData *UserData
 
@@ -217,7 +221,7 @@ func (g *GokobanGame) Quit() {
 	g.userData.SfxVol = g.sfxSlider.Value()
 	g.userData.MusicVol = g.musicSlider.Value()
 	g.userData.FullScreen = g.win.FullScreen()
-	g.userData.Save()
+	g.userData.Save(g.dataDir)
 
 	// Close the window
 	g.win.SetShouldClose(true)
@@ -301,7 +305,7 @@ func (g *GokobanGame) LevelComplete() {
 
 	if g.userData.LastUnlockedLevel == g.leveln {
 		g.userData.LastUnlockedLevel++
-		g.userData.Save() // Save in case game crashes
+		g.userData.Save(g.dataDir) // Save in case game crashes
 		if g.userData.LastUnlockedLevel < len(g.levels) {
 			g.nextButton.SetEnabled(true)
 		}
@@ -319,7 +323,7 @@ func (g *GokobanGame) GameCompleted() {
 		g.musicPlayer.Stop()
 		g.PlaySound(g.gameCompletePlayer, nil)
 	}
-	g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3_completed.png")
+	g.titleImage.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/title3_completed.png")
 }
 
 // InitLevel initializes the level associated to the provided index
@@ -332,10 +336,10 @@ func (g *GokobanGame) InitLevel(n int) {
 	// The button to go to the next level has 3 different states: disabled, locked and enabled
 	// If this is the very last level - disable it completely
 	if n == len(g.levels)-1 {
-		g.nextButton.SetImage(gui.ButtonDisabled, "gui/right_disabled2.png")
+		g.nextButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/right_disabled2.png")
 		g.nextButton.SetEnabled(false)
 	} else {
-		g.nextButton.SetImage(gui.ButtonDisabled, "gui/right_disabled_locked.png")
+		g.nextButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/right_disabled_locked.png")
 		// check last completed level
 		if g.userData.LastUnlockedLevel == n {
 			g.nextButton.SetEnabled(false)
@@ -368,7 +372,7 @@ func (g *GokobanGame) InitLevel(n int) {
 func (g *GokobanGame) LoadLevels() {
 	log.Debug("Load Levels")
 
-	files, _ := ioutil.ReadDir("./levels")
+	files, _ := ioutil.ReadDir(g.dataDir + "/levels")
 	g.levels = make([]*Level, len(files)-1)
 
 	for i, f := range files {
@@ -381,7 +385,7 @@ func (g *GokobanGame) LoadLevels() {
 		log.Debug("Reading level file: %v as level %v", f.Name(), i+1)
 
 		// Read level text file
-		b, err := ioutil.ReadFile("./levels/" + f.Name())
+		b, err := ioutil.ReadFile(g.dataDir + "/levels/" + f.Name())
 		if err != nil {
 			fmt.Print(err)
 		}
@@ -457,68 +461,68 @@ func (g *GokobanGame) LoadAudio() {
 		return p
 	}
 
-	g.musicPlayer = createPlayer("audio/music/Lost-Jungle_Looping.ogg")
+	g.musicPlayer = createPlayer(g.dataDir + "/audio/music/Lost-Jungle_Looping.ogg")
 	g.musicPlayer.SetLooping(true)
 
-	g.musicPlayerMenu = createPlayer("audio/music/Spooky-Island.ogg")
+	g.musicPlayerMenu = createPlayer(g.dataDir + "/audio/music/Spooky-Island.ogg")
 	g.musicPlayerMenu.SetLooping(true)
 
 	rFactor := float32(0.2)
 
-	g.clickPlayer = createPlayer("audio/sfx/button_click.ogg")
+	g.clickPlayer = createPlayer(g.dataDir + "/audio/sfx/button_click.ogg")
 	g.clickPlayer.SetRolloffFactor(rFactor)
 
-	g.hoverPlayer = createPlayer("audio/sfx/button_hover.ogg")
+	g.hoverPlayer = createPlayer(g.dataDir + "/audio/sfx/button_hover.ogg")
 	g.hoverPlayer.SetRolloffFactor(rFactor)
 
-	g.walkPlayer = createPlayer("audio/sfx/gopher_walk.ogg")
+	g.walkPlayer = createPlayer(g.dataDir + "/audio/sfx/gopher_walk.ogg")
 	g.walkPlayer.SetRolloffFactor(rFactor)
 
-	g.bumpPlayer = createPlayer("audio/sfx/gopher_bump.ogg")
+	g.bumpPlayer = createPlayer(g.dataDir + "/audio/sfx/gopher_bump.ogg")
 	g.bumpPlayer.SetRolloffFactor(rFactor)
 
-	g.gopherFallStartPlayer = createPlayer("audio/sfx/gopher_fall_start.ogg")
+	g.gopherFallStartPlayer = createPlayer(g.dataDir + "/audio/sfx/gopher_fall_start.ogg")
 	g.gopherFallStartPlayer.SetRolloffFactor(rFactor)
 
-	g.gopherFallEndPlayer = createPlayer("audio/sfx/gopher_fall_end.ogg")
+	g.gopherFallEndPlayer = createPlayer(g.dataDir + "/audio/sfx/gopher_fall_end.ogg")
 	g.gopherFallEndPlayer.SetRolloffFactor(rFactor)
 
-	g.gopherHurtPlayer = createPlayer("audio/sfx/gopher_hurt.ogg")
+	g.gopherHurtPlayer = createPlayer(g.dataDir + "/audio/sfx/gopher_hurt.ogg")
 	g.gopherHurtPlayer.SetRolloffFactor(rFactor)
 
-	g.boxPushPlayer = createPlayer("audio/sfx/box_push.ogg")
+	g.boxPushPlayer = createPlayer(g.dataDir + "/audio/sfx/box_push.ogg")
 	g.boxPushPlayer.SetRolloffFactor(rFactor)
 
-	g.boxOnPadPlayer = createPlayer("audio/sfx/box_on.ogg")
+	g.boxOnPadPlayer = createPlayer(g.dataDir + "/audio/sfx/box_on.ogg")
 	g.boxOnPadPlayer.SetRolloffFactor(rFactor)
 
-	g.boxOffPadPlayer = createPlayer("audio/sfx/box_off.ogg")
+	g.boxOffPadPlayer = createPlayer(g.dataDir + "/audio/sfx/box_off.ogg")
 	g.boxOffPadPlayer.SetRolloffFactor(rFactor)
 
-	g.boxFallStartPlayer = createPlayer("audio/sfx/box_fall_start.ogg")
+	g.boxFallStartPlayer = createPlayer(g.dataDir + "/audio/sfx/box_fall_start.ogg")
 	g.boxFallStartPlayer.SetRolloffFactor(rFactor)
 
-	g.boxFallEndPlayer = createPlayer("audio/sfx/box_fall_end.ogg")
+	g.boxFallEndPlayer = createPlayer(g.dataDir + "/audio/sfx/box_fall_end.ogg")
 	g.boxFallEndPlayer.SetRolloffFactor(rFactor)
 
-	g.elevatorUpPlayer = createPlayer("audio/sfx/elevator_up.ogg")
+	g.elevatorUpPlayer = createPlayer(g.dataDir + "/audio/sfx/elevator_up.ogg")
 	g.elevatorUpPlayer.SetLooping(true)
 	g.elevatorUpPlayer.SetRolloffFactor(rFactor)
 
-	g.elevatorDownPlayer = createPlayer("audio/sfx/elevator_down.ogg")
+	g.elevatorDownPlayer = createPlayer(g.dataDir + "/audio/sfx/elevator_down.ogg")
 	g.elevatorDownPlayer.SetLooping(true)
 	g.elevatorDownPlayer.SetRolloffFactor(rFactor)
 
-	g.levelDonePlayer = createPlayer("audio/sfx/level_done.ogg")
+	g.levelDonePlayer = createPlayer(g.dataDir + "/audio/sfx/level_done.ogg")
 	g.levelDonePlayer.SetRolloffFactor(rFactor)
 
-	g.levelRestartPlayer = createPlayer("audio/sfx/level_restart.ogg")
+	g.levelRestartPlayer = createPlayer(g.dataDir + "/audio/sfx/level_restart.ogg")
 	g.levelRestartPlayer.SetRolloffFactor(rFactor)
 
-	g.levelFailPlayer = createPlayer("audio/sfx/level_fail.ogg")
+	g.levelFailPlayer = createPlayer(g.dataDir + "/audio/sfx/level_fail.ogg")
 	g.levelFailPlayer.SetRolloffFactor(rFactor)
 
-	g.gameCompletePlayer = createPlayer("audio/sfx/game_complete.ogg")
+	g.gameCompletePlayer = createPlayer(g.dataDir + "/audio/sfx/game_complete.ogg")
 	g.gameCompletePlayer.SetRolloffFactor(rFactor)
 }
 
@@ -528,7 +532,7 @@ func (g *GokobanGame) LoadSkyBox() {
 
 	// Load skybox textures
 	skyboxData := graphic.SkyboxData{
-		"img/skybox/", "jpg",
+		g.dataDir + "/img/skybox/", "jpg",
 		[6]string{"px", "nx", "py", "ny", "pz", "nz"}}
 
 	skybox, err := graphic.NewSkybox(skyboxData)
@@ -555,8 +559,7 @@ func (g *GokobanGame) LoadGopher() {
 	log.Debug("Decoding gopher model...")
 
 	// Decode model in OBJ format
-	dec, err := obj.Decode("gopher/gopher.obj", "gopher/gopher.mtl")
-	// dec, err := obj.Decode("data/gopher_low_poly2.obj", "data/gopher_low_poly2.mtl")
+	dec, err := obj.Decode(g.dataDir + "/gopher/gopher.obj", g.dataDir + "/gopher/gopher.mtl")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -723,15 +726,15 @@ func (g *GokobanGame) CreateArrowNode() {
 
 func (g *GokobanGame) UpdateMusicButton(on bool) {
 	if on {
-		g.musicButton.SetImage(gui.ButtonNormal, "gui/music_normal.png")
-		g.musicButton.SetImage(gui.ButtonOver, "gui/music_hover.png")
-		g.musicButton.SetImage(gui.ButtonPressed, "gui/music_click.png")
+		g.musicButton.SetImage(gui.ButtonNormal, g.dataDir + "/gui/music_normal.png")
+		g.musicButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/music_hover.png")
+		g.musicButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/music_click.png")
 		g.musicSlider.SetEnabled(true)
 		g.musicSlider.SetValue(g.musicSlider.Value())
 	} else {
-		g.musicButton.SetImage(gui.ButtonNormal, "gui/music_normal_off.png")
-		g.musicButton.SetImage(gui.ButtonOver, "gui/music_hover_off.png")
-		g.musicButton.SetImage(gui.ButtonPressed, "gui/music_click_off.png")
+		g.musicButton.SetImage(gui.ButtonNormal, g.dataDir + "/gui/music_normal_off.png")
+		g.musicButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/music_hover_off.png")
+		g.musicButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/music_click_off.png")
 		g.musicSlider.SetEnabled(false)
 		g.SetMusicVolume(0)
 	}
@@ -739,15 +742,15 @@ func (g *GokobanGame) UpdateMusicButton(on bool) {
 
 func (g *GokobanGame) UpdateSfxButton(on bool) {
 	if on {
-		g.sfxButton.SetImage(gui.ButtonNormal, "gui/sound_normal.png")
-		g.sfxButton.SetImage(gui.ButtonOver, "gui/sound_hover.png")
-		g.sfxButton.SetImage(gui.ButtonPressed, "gui/sound_click.png")
+		g.sfxButton.SetImage(gui.ButtonNormal, g.dataDir + "/gui/sound_normal.png")
+		g.sfxButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/sound_hover.png")
+		g.sfxButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/sound_click.png")
 		g.sfxSlider.SetEnabled(true)
 		g.sfxSlider.SetValue(g.sfxSlider.Value())
 	} else {
-		g.sfxButton.SetImage(gui.ButtonNormal, "gui/sound_normal_off.png")
-		g.sfxButton.SetImage(gui.ButtonOver, "gui/sound_hover_off.png")
-		g.sfxButton.SetImage(gui.ButtonPressed, "gui/sound_click_off.png")
+		g.sfxButton.SetImage(gui.ButtonNormal, g.dataDir + "/gui/sound_normal_off.png")
+		g.sfxButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/sound_hover_off.png")
+		g.sfxButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/sound_click_off.png")
 		g.sfxSlider.SetEnabled(false)
 		g.SetSfxVolume(0)
 	}
@@ -824,10 +827,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.controls.Add(header)
 
 	// Previous Level Button
-	g.prevButton, err = gui.NewImageButton("gui/left_normal.png")
-	g.prevButton.SetImage(gui.ButtonOver, "gui/left_hover.png")
-	g.prevButton.SetImage(gui.ButtonPressed, "gui/left_click.png")
-	g.prevButton.SetImage(gui.ButtonDisabled, "gui/left_disabled2.png")
+	g.prevButton, err = gui.NewImageButton(g.dataDir + "/gui/left_normal.png")
+	g.prevButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/left_hover.png")
+	g.prevButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/left_click.png")
+	g.prevButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/left_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -845,8 +848,8 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	header.Add(spacer1)
 
 	// Level Number Label
-	g.levelLabel, err = gui.NewImageButton("gui/panel.png")
-	g.levelLabel.SetImage(gui.ButtonDisabled, "gui/panel.png")
+	g.levelLabel, err = gui.NewImageButton(g.dataDir + "/gui/panel.png")
+	g.levelLabel.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/panel.png")
 	g.levelLabel.SetColor(&math32.Color{0.8, 0.8, 0.8})
 	g.levelLabel.SetText("Level")
 	g.levelLabel.SetFontSize(35)
@@ -858,10 +861,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	header.Add(spacer2)
 
 	// Next Level Button
-	g.nextButton, err = gui.NewImageButton("gui/right_normal.png")
-	g.nextButton.SetImage(gui.ButtonOver, "gui/right_hover.png")
-	g.nextButton.SetImage(gui.ButtonPressed, "gui/right_click.png")
-	g.nextButton.SetImage(gui.ButtonDisabled, "gui/right_disabled2.png")
+	g.nextButton, err = gui.NewImageButton(g.dataDir + "/gui/right_normal.png")
+	g.nextButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/right_hover.png")
+	g.nextButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/right_click.png")
+	g.nextButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/right_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -885,10 +888,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.controls.Add(footer)
 
 	// Restart Level Button
-	g.restartButton, err = gui.NewImageButton("gui/restart_normal.png")
-	g.restartButton.SetImage(gui.ButtonOver, "gui/restart_hover.png")
-	g.restartButton.SetImage(gui.ButtonPressed, "gui/restart_click.png")
-	g.restartButton.SetImage(gui.ButtonDisabled, "gui/restart_disabled2.png")
+	g.restartButton, err = gui.NewImageButton(g.dataDir + "/gui/restart_normal.png")
+	g.restartButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/restart_hover.png")
+	g.restartButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/restart_click.png")
+	g.restartButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/restart_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -903,10 +906,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	footer.Add(spacer3)
 
 	// Restart Level Button
-	g.menuButton, err = gui.NewImageButton("gui/menu_normal.png")
-	g.menuButton.SetImage(gui.ButtonOver, "gui/menu_hover.png")
-	g.menuButton.SetImage(gui.ButtonPressed, "gui/menu_click.png")
-	g.menuButton.SetImage(gui.ButtonDisabled, "gui/menu_disabled2.png")
+	g.menuButton, err = gui.NewImageButton(g.dataDir + "/gui/menu_normal.png")
+	g.menuButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/menu_hover.png")
+	g.menuButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/menu_click.png")
+	g.menuButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/menu_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -921,8 +924,8 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	g.root.Add(g.controls)
 
 	// Title
-	g.titleImage, err = gui.NewImageButton("gui/title3.png")
-	g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3.png")
+	g.titleImage, err = gui.NewImageButton(g.dataDir + "/gui/title3.png")
+	g.titleImage.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/title3.png")
 	g.titleImage.SetEnabled(false)
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g.titleImage.SetPositionX((g.root.ContentWidth() - g.titleImage.ContentWidth()) / 2)
@@ -1008,10 +1011,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	musicControl := gui.NewPanel(130, 100)
 	musicControl.SetLayout(topRowLayout)
 
-	g.musicButton, err = gui.NewImageButton("gui/music_normal.png")
-	g.musicButton.SetImage(gui.ButtonOver, "gui/music_hover.png")
-	g.musicButton.SetImage(gui.ButtonPressed, "gui/music_click.png")
-	g.musicButton.SetImage(gui.ButtonDisabled, "gui/music_disabled2.png")
+	g.musicButton, err = gui.NewImageButton(g.dataDir + "/gui/music_normal.png")
+	g.musicButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/music_hover.png")
+	g.musicButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/music_click.png")
+	g.musicButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/music_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -1039,10 +1042,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	sfxControl := gui.NewPanel(130, 100)
 	sfxControl.SetLayout(topRowLayout)
 
-	g.sfxButton, err = gui.NewImageButton("gui/sound_normal.png")
-	g.sfxButton.SetImage(gui.ButtonOver, "gui/sound_hover.png")
-	g.sfxButton.SetImage(gui.ButtonPressed, "gui/sound_click.png")
-	g.sfxButton.SetImage(gui.ButtonDisabled, "gui/sound_disabled2.png")
+	g.sfxButton, err = gui.NewImageButton(g.dataDir + "/gui/sound_normal.png")
+	g.sfxButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/sound_hover.png")
+	g.sfxButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/sound_click.png")
+	g.sfxButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/sound_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -1067,10 +1070,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	topRow.Add(sfxControl)
 
 	// FullScreen Button
-	g.fullScreenButton, err = gui.NewImageButton("gui/screen_normal.png")
-	g.fullScreenButton.SetImage(gui.ButtonOver, "gui/screen_hover.png")
-	g.fullScreenButton.SetImage(gui.ButtonPressed, "gui/screen_click.png")
-	g.fullScreenButton.SetImage(gui.ButtonDisabled, "gui/screen_disabled2.png")
+	g.fullScreenButton, err = gui.NewImageButton(g.dataDir + "/gui/screen_normal.png")
+	g.fullScreenButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/screen_hover.png")
+	g.fullScreenButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/screen_click.png")
+	g.fullScreenButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/screen_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -1089,10 +1092,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	buttonRow.SetLayout(buttonRowLayout)
 
 	// Quit Button
-	g.quitButton, err = gui.NewImageButton("gui/quit_normal.png")
-	g.quitButton.SetImage(gui.ButtonOver, "gui/quit_hover.png")
-	g.quitButton.SetImage(gui.ButtonPressed, "gui/quit_click.png")
-	g.quitButton.SetImage(gui.ButtonDisabled, "gui/quit_disabled2.png")
+	g.quitButton, err = gui.NewImageButton(g.dataDir + "/gui/quit_normal.png")
+	g.quitButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/quit_hover.png")
+	g.quitButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/quit_click.png")
+	g.quitButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/quit_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -1103,10 +1106,10 @@ func (g *GokobanGame) SetupGui(width, height int) {
 	buttonRow.Add(g.quitButton)
 
 	// Play Button
-	g.playButton, err = gui.NewImageButton("gui/play_normal.png")
-	g.playButton.SetImage(gui.ButtonOver, "gui/play_hover.png")
-	g.playButton.SetImage(gui.ButtonPressed, "gui/play_click.png")
-	g.playButton.SetImage(gui.ButtonDisabled, "gui/play_disabled2.png")
+	g.playButton, err = gui.NewImageButton(g.dataDir + "/gui/play_normal.png")
+	g.playButton.SetImage(gui.ButtonOver, g.dataDir + "/gui/play_hover.png")
+	g.playButton.SetImage(gui.ButtonPressed, g.dataDir + "/gui/play_click.png")
+	g.playButton.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/play_disabled2.png")
 	if err != nil {
 		panic(err)
 	}
@@ -1140,7 +1143,7 @@ func (g *GokobanGame) SetupGui(width, height int) {
 
 	g3n := gui.NewImageLabel("")
 	g3n.SetSize(57, 50)
-	g3n.SetImageFromFile("img/g3n.png")
+	g3n.SetImageFromFile(g.dataDir + "/img/g3n.png")
 	g.root.Subscribe(gui.OnResize, func(evname string, ev interface{}) {
 		g3n.SetPositionX(g.root.ContentWidth() - g3n.Width())
 		g3n.SetPositionY(g.root.ContentHeight() - 1.3*g3n.Height())
@@ -1214,8 +1217,19 @@ func main() {
 	// Create GokobanGame struct
 	g := new(GokobanGame)
 
+	// Manually scan the $GOPATH directories to find the data directory
+	rawPaths := os.Getenv("GOPATH")
+	paths := strings.Split(rawPaths, ":")
+	for _, j := range paths {
+		// Checks data path
+		path := filepath.Join(j, "src", "github.com", "danaugrs", "gokoban")
+		if _, err := os.Stat(path); err == nil {
+			g.dataDir = path
+		}
+	}
+
 	// Load user data from file
-	g.userData = NewUserData()
+	g.userData = NewUserData(g.dataDir)
 
 	// Get the window manager
 	var err error
@@ -1304,7 +1318,7 @@ func main() {
 	ambLight := light.NewAmbient(&math32.Color{1.0, 1.0, 1.0}, 0.4)
 	g.scene.Add(ambLight)
 
-	g.levelStyle = NewStandardStyle()
+	g.levelStyle = NewStandardStyle(g.dataDir)
 
 	g.SetupGui(width, height)
 	g.RenderFrame()
@@ -1335,7 +1349,7 @@ func main() {
 	g.win.Subscribe(window.OnCursor, g.onCursor)
 
 	if g.userData.LastUnlockedLevel == len(g.levels) {
-		g.titleImage.SetImage(gui.ButtonDisabled, "gui/title3_completed.png")
+		g.titleImage.SetImage(gui.ButtonDisabled, g.dataDir + "/gui/title3_completed.png")
 	}
 
 	// Done Loading - hide the loading label, show the menu, and initialize the level
