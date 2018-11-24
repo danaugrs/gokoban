@@ -25,6 +25,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/g3n/engine/geometry"
+	"go/build"
 	"io/ioutil"
 	"runtime"
 	"strconv"
@@ -1219,6 +1220,9 @@ func main() {
 
 	// Manually scan the $GOPATH directories to find the data directory
 	rawPaths := os.Getenv("GOPATH")
+	if rawPaths == "" {
+		rawPaths = build.Default.GOPATH
+	}
 	paths := strings.Split(rawPaths, ":")
 	for _, j := range paths {
 		// Checks data path
