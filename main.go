@@ -1259,7 +1259,8 @@ func main() {
 	// Sets the OpenGL viewport size the same as the window size
 	// This normally should be updated if the window is resized.
 	width, height := g.win.Size()
-	g.gs.Viewport(0, 0, int32(width), int32(height))
+	scaleX, scaleY := g.win.Scale()
+	g.gs.Viewport(0, 0, int32(width * int(scaleX)), int32(height * int(scaleY)))
 
 	// Creates GUI root panel
 	g.root = gui.NewRoot(g.gs, g.win)
