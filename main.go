@@ -545,7 +545,7 @@ func (g *GokobanGame) LoadSkyBox() {
 	brightness := float32(0.6)
 	sbmats := skybox.Materials()
 	for i := 0; i < len(sbmats); i++ {
-		sbmat := skybox.Materials()[i].GetMaterial().(*material.Standard)
+		sbmat := skybox.Materials()[i].IMaterial().(*material.Standard)
 		sbmat.SetUseLights(material.UseLightNone)
 		sbmat.SetEmissiveColor(&math32.Color{brightness, brightness, brightness})
 	}
