@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package main
+package components
 
 import (
 	"github.com/g3n/engine/camera"
@@ -279,7 +279,7 @@ func (l *Level) Restart(playSound bool) {
 	l.game.restartButton.SetEnabled(false)
 
 	// Stop all sounds
-	if l.game.audioAvailable {
+	if l.game.AudioAvailable {
 		l.game.walkPlayer.Stop()
 		l.game.bumpPlayer.Stop()
 		l.game.gopherFallEndPlayer.Stop()
@@ -326,10 +326,10 @@ func (l *Level) SetPosition(obj IMapObj, dest GridLoc) {
 // onKey handles keyboard events for the level
 func (l *Level) onKey(evname string, ev interface{}) {
 
-	if !l.game.gopherLocked {
+	if !l.game.GopherLocked {
 
-		xd := int(l.game.stepDelta.X)
-		zd := int(l.game.stepDelta.Y)
+		xd := int(l.game.StepDelta.X)
+		zd := int(l.game.StepDelta.Y)
 
 		kev := ev.(*window.KeyEvent)
 		switch kev.Keycode {
@@ -584,7 +584,7 @@ func (l *Level) fall(obj IMapObj, playSound bool) {
 
 		// If it's the gopher falling - lock it
 		if _, ok := obj.(*Gopher); ok {
-			l.game.gopherLocked = true
+			l.game.GopherLocked = true
 			l.game.arrowNode.SetVisible(false)
 		}
 
@@ -722,7 +722,7 @@ func (l *Level) lowerElev(elev *Elevator) {
 		log.Debug("Lowering elevator")
 		l.game.PlaySound(l.game.elevatorDownPlayer, elev.Node())
 		l.animate(elev, newloc, false, func(obj interface{}) {
-			if l.game.audioAvailable {
+			if l.game.AudioAvailable {
 				l.game.elevatorDownPlayer.Stop()
 			}
 		})
@@ -782,7 +782,7 @@ func (l *Level) elevate(elev *Elevator) {
 		up := elev.Location()
 		up.y += spaces_above_cargo
 		l.animate(elev, up, false, func(interface{}) {
-			if l.game.audioAvailable {
+			if l.game.AudioAvailable {
 				l.game.elevatorUpPlayer.Stop()
 			}
 			l.animating = false
