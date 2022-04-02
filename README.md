@@ -11,11 +11,14 @@ It was created using [G3N](https://github.com/g3n/engine) for the [2017 Gopher G
 
 ## Building from source
 
-First make sure you have the [G3N external dependencies](https://github.com/g3n/engine#dependencies) in place.
+Make sure you have the [G3N external dependencies](https://github.com/g3n/engine#dependencies) in place. Then execute the following commands:
 
-The following command will download and install Gokoban, G3N, and all of G3N's Go package dependencies (make sure your GOPATH is set correctly):
-
-`go get -u github.com/danaugrs/gokoban`
+```
+git clone https://github.com/danaugrs/gokoban.git
+cd gokoban/
+go build
+./gokoban
+```
 
 If you are on Windows, you'll need the audio DLLs mentioned in the [G3N readme](https://github.com/g3n/engine#dependencies).
 You may also need `vcruntime140.dll`. All the necessary DLLs are provided here under [`dist/win`](dist/win) - you just need to "add" them to your PATH, or copy them to the same folder that your Gokoban executable is in. Alternatively you can build them yourself by following [these instructions](https://github.com/g3n/windows_audio_dlls). You can obtain `vcruntime140.dll` by downloading a [Microsoft Visual C++ Redistributable](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads).
