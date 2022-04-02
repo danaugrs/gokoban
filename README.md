@@ -5,7 +5,7 @@ Gokoban is a 3D puzzle game written in Go. You control the Go gopher, and your o
 
 It was created using [G3N](https://github.com/g3n/engine) for the [2017 Gopher Game Jam](https://itch.io/jam/gopher-jam) on [itch.io](https://itch.io).
 
-### [:white_check_mark: Download Windows 64-bit Precompiled Binary](https://github.com/danaugrs/gokoban/archive/win64-bin.zip)
+### [✅ Download Windows 64-bit Precompiled Binary (v1.0)](https://github.com/danaugrs/gokoban/archive/win64-bin.zip)
 
 ![Gokoban Screenshots](img/screenshots.gif)
 

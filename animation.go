@@ -33,11 +33,10 @@ func NewAnimation(node *core.Node, dest *math32.Vector3, cb func(interface{}), c
 // and calls the callback with the previously provided args once finished
 func (a *Animation) Update(timeDelta float64) bool {
 	pos := a.node.Position()
-	delta := math32.NewVector3(0, 0, 0)
-	delta.Add(a.dest)
+	delta := a.dest.Clone()
 	delta.Sub(&pos)
 	dist := delta.Length()
-	delta = delta.Normalize().MultiplyScalar(a.speed * float32(timeDelta))
+	delta = delta.Normalize().MultiplyScalar(-a.speed * float32(timeDelta))
 	if dist > delta.Length() {
 		a.node.SetPositionVec(pos.Sub(delta))
 		return true

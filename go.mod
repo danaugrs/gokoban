@@ -5,7 +5,7 @@ go 1.17
 // To run with a local version of G3N uncomment the following line
 // replace github.com/g3n/engine => ../g3n/engine
 
-require github.com/g3n/engine v0.2.0
+require github.com/g3n/engine v0.2.1-0.20220402201105-253be6caa10f
 
 require (
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20210410170116-ea3d685f79fb // indirect

@@ -5,7 +5,6 @@
 package main
 
 import (
-	"github.com/g3n/engine/camera"
 	"github.com/g3n/engine/core"
 	"github.com/g3n/engine/light"
 	"github.com/g3n/engine/math32"
@@ -42,12 +41,6 @@ func (l *GridLoc) Equals(v math32.Vector3) bool {
 func (l *GridLoc) Vec3() *math32.Vector3 {
 	return math32.NewVector3(float32(l.x), float32(l.y), float32(l.z))
 }
-
-//func (l *GridLoc) FromVec3(v *math32.Vector3) {
-//	l.z = int(v.Z)
-//	l.x = int(v.X)
-//	l.y = int(v.Y)
-//}
 
 // LevelData contains all the logical information about a level
 type LevelData struct {
@@ -160,9 +153,8 @@ func ParseLevel(data string) (*LevelData, error) {
 
 // Level stores all the operational data for a level
 type Level struct {
-	game   *GokobanGame
-	scene  *core.Node
-	camera *camera.Perspective
+	game  *Gokoban
+	scene *core.Node
 
 	data  *LevelData
 	style *LevelStyle
@@ -179,13 +171,12 @@ type Level struct {
 }
 
 // NewLevel returns a pointer to a new Level object
-func NewLevel(g *GokobanGame, ld *LevelData, ls *LevelStyle, cam *camera.Perspective) *Level {
+func NewLevel(g *Gokoban, ld *LevelData, ls *LevelStyle) *Level {
 
 	l := new(Level)
 	l.game = g
 	l.data = ld
 	l.style = ls
-	l.camera = cam
 	l.animating = false
 
 	l.scene = core.NewNode()
@@ -276,27 +267,25 @@ func (l *Level) Restart(playSound bool) {
 	l.animating = false
 	l.resetAnim = true
 
-	l.game.restartButton.SetEnabled(false)
+	l.game.ui.restartButton.SetEnabled(false)
 
 	// Stop all sounds
-	if l.game.audioAvailable {
-		l.game.walkPlayer.Stop()
-		l.game.bumpPlayer.Stop()
-		l.game.gopherFallEndPlayer.Stop()
-		l.game.gopherFallStartPlayer.Stop()
-		l.game.boxPushPlayer.Stop()
-		l.game.boxOnPadPlayer.Stop()
-		l.game.boxOffPadPlayer.Stop()
-		l.game.boxFallEndPlayer.Stop()
-		l.game.boxFallStartPlayer.Stop()
-		l.game.elevatorUpPlayer.Stop()
-		l.game.elevatorDownPlayer.Stop()
-		l.game.levelDonePlayer.Stop()
-		l.game.levelFailPlayer.Stop()
-	}
+	l.game.audio.gopherWalk.Stop()
+	l.game.audio.gopherBump.Stop()
+	l.game.audio.gopherFallEnd.Stop()
+	l.game.audio.gopherFallStart.Stop()
+	l.game.audio.boxPush.Stop()
+	l.game.audio.boxOnPad.Stop()
+	l.game.audio.boxOffPad.Stop()
+	l.game.audio.boxFallEnd.Stop()
+	l.game.audio.boxFallStart.Stop()
+	l.game.audio.elevatorUp.Stop()
+	l.game.audio.elevatorDown.Stop()
+	l.game.audio.levelDone.Stop()
+	l.game.audio.levelFail.Stop()
 
 	if playSound && l.game.steps != 0 {
-		l.game.PlaySound(l.game.levelRestartPlayer, nil)
+		l.game.audio.levelRestart.Play()
 	}
 
 	l.game.steps = 0
@@ -320,7 +309,7 @@ func (l *Level) SetPosition(obj IMapObj, dest GridLoc) {
 	l.data.Set(obj.Location(), nil)
 	obj.SetLocation(dest)
 	l.data.Set(obj.Location(), obj)
-	obj.Node().SetPositionVec(dest.Vec3())
+	obj.GetNode().SetPositionVec(dest.Vec3())
 }
 
 // onKey handles keyboard events for the level
@@ -332,7 +321,7 @@ func (l *Level) onKey(evname string, ev interface{}) {
 		zd := int(l.game.stepDelta.Y)
 
 		kev := ev.(*window.KeyEvent)
-		switch kev.Keycode {
+		switch kev.Key {
 		case window.KeyW, window.KeyUp:
 			log.Debug("Up")
 			l.step(zd, xd)
@@ -378,13 +367,13 @@ func (l *Level) animate(obj IMapObj, dest GridLoc, delete bool, cb func(interfac
 	log.Debug("Queueing animation %+v %+v", obj, dest)
 
 	// Queue animation
-	anim := NewAnimation(obj.Node(), dest.Vec3(), cb, obj)
+	anim := NewAnimation(obj.GetNode(), dest.Vec3(), cb, obj)
 	l.toAnimate = append(l.toAnimate, anim)
 
 	// Move in matrix
 	oloc := obj.Location()
 	l.data.Set(oloc, nil)
-	if delete == false {
+	if !delete {
 		l.data.Set(dest, obj)
 		obj.SetLocation(dest)
 	}
@@ -417,7 +406,7 @@ func (l *Level) step(zd, xd int) {
 	// TODO else - add to queue?
 	if !l.animating {
 
-		l.game.restartButton.SetEnabled(true)
+		l.game.ui.restartButton.SetEnabled(true)
 
 		// Rotate gopher
 		if xd > 0 {
@@ -457,7 +446,7 @@ func (l *Level) step(zd, xd int) {
 
 func (l *Level) wallBump() {
 	log.Debug("Hit wall")
-	l.game.PlaySound(l.game.bumpPlayer, nil)
+	l.game.audio.gopherBump.Play()
 }
 
 // moveGopherTo moves the gopher and sets up the appropriate callbacks
@@ -468,9 +457,9 @@ func (l *Level) moveGopherTo(pos GridLoc) {
 
 	floor, _ := l.getCellRelativeToLoc(pos, 0, 0, -1)
 	if floor == nil {
-		l.game.PlaySound(l.game.gopherFallStartPlayer, nil)
+		l.game.audio.gopherFallStart.Play()
 	} else {
-		l.game.PlaySound(l.game.walkPlayer, nil)
+		l.game.audio.gopherWalk.Play()
 	}
 
 	oldloc := l.gopher.Location()
@@ -496,7 +485,8 @@ func (l *Level) boxOnPad(box *Box, playSound bool) {
 	log.Debug("Box on pad")
 	if box.light.Color() == *l.style.boxLightColorOff {
 		if playSound {
-			l.game.PlaySound(l.game.boxOnPadPlayer, box.Node())
+			box.Add(l.game.audio.boxOnPad)
+			l.game.audio.boxOnPad.Play()
 		}
 		log.Debug("...replacing mesh and changing light color")
 		l.scene.Remove(box.mesh)
@@ -505,7 +495,7 @@ func (l *Level) boxOnPad(box *Box, playSound bool) {
 		box.SetMeshAndLight(newMesh, box.light)
 		l.scene.Add(newMesh)
 		if l.levelComplete() {
-			l.game.PlaySound(l.game.levelDonePlayer, nil)
+			l.game.audio.levelDone.Play()
 			l.game.LevelComplete()
 		}
 	}
@@ -517,7 +507,8 @@ func (l *Level) boxOffPad(box *Box, playSound bool) {
 	log.Debug("Box off pad")
 	if box.light.Color() == *l.style.boxLightColorOn {
 		if playSound {
-			l.game.PlaySound(l.game.boxOffPadPlayer, box.Node())
+			box.Add(l.game.audio.boxOffPad)
+			l.game.audio.boxOffPad.Play()
 		}
 		log.Debug("...replacing mesh and changing light color")
 		l.scene.Remove(box.mesh)
@@ -535,12 +526,13 @@ func (l *Level) afterFallSound(o interface{}, numFloors int) {
 
 	floor, _ := l.getCellRelativeTo(obj, 0, 0, -1)
 	if _, objIsGopher := obj.(*Gopher); objIsGopher && numFloors >= 1 {
-		l.game.PlaySound(l.game.gopherFallEndPlayer, nil)
+		l.game.audio.gopherFallEnd.Play()
 	} else if box, objIsBox := obj.(*Box); objIsBox {
 		if _, floorIsGopher := floor.(*Gopher); floorIsGopher {
-			l.game.PlaySound(l.game.gopherHurtPlayer, nil)
+			l.game.audio.gopherHurt.Play()
 		} else { //if !l.data.IsPad(obj.Location()) {
-			l.game.PlaySound(l.game.boxFallEndPlayer, box.Node())
+			box.Add(l.game.audio.boxFallEnd)
+			l.game.audio.boxFallEnd.Play()
 		}
 	}
 }
@@ -570,7 +562,8 @@ func (l *Level) fall(obj IMapObj, playSound bool) {
 
 	if playSound {
 		if box, ok := obj.(*Box); ok {
-			l.game.PlaySound(l.game.boxFallStartPlayer, box.Node())
+			box.Add(l.game.audio.boxFallStart)
+			l.game.audio.boxFallStart.Play()
 		}
 	}
 
@@ -590,7 +583,7 @@ func (l *Level) fall(obj IMapObj, playSound bool) {
 
 		del = true
 		pfall.y = -20
-		l.game.PlaySound(l.game.levelFailPlayer, nil)
+		l.game.audio.levelFail.Play()
 		cb = func(obj interface{}) {
 			log.Debug("Done falling out of game")
 			l.game.RestartLevel(true)
@@ -636,7 +629,8 @@ func (l *Level) afterMove(obj interface{}) {
 func (l *Level) pushBox(box IMapObj, dest GridLoc) {
 
 	log.Debug("pushBox")
-	l.game.PlaySound(l.game.boxPushPlayer, box.Node())
+	box.GetNode().Add(l.game.audio.boxPush)
+	l.game.audio.boxPush.Play()
 
 	toMove := make([]IMapObj, 0)
 	toFall := make([]IMapObj, 0)
@@ -720,11 +714,10 @@ func (l *Level) lowerElev(elev *Elevator) {
 	newloc.y++
 	if newloc.y != elev.loc.y {
 		log.Debug("Lowering elevator")
-		l.game.PlaySound(l.game.elevatorDownPlayer, elev.Node())
+		elev.Add(l.game.audio.elevatorDown)
+		l.game.audio.elevatorDown.Play()
 		l.animate(elev, newloc, false, func(obj interface{}) {
-			if l.game.audioAvailable {
-				l.game.elevatorDownPlayer.Stop()
-			}
+			l.game.audio.elevatorDown.Stop()
 		})
 	}
 }
@@ -754,7 +747,8 @@ func (l *Level) elevate(elev *Elevator) {
 	max_elevation := elev.high - elev.loc.y
 
 	if max_elevation > 0 {
-		l.game.PlaySound(l.game.elevatorUpPlayer, elev.Node())
+		elev.Add(l.game.audio.elevatorUp)
+		l.game.audio.elevatorUp.Play()
 
 		l.animating = true
 		cargo := l.getCargo(elev)
@@ -782,9 +776,7 @@ func (l *Level) elevate(elev *Elevator) {
 		up := elev.Location()
 		up.y += spaces_above_cargo
 		l.animate(elev, up, false, func(interface{}) {
-			if l.game.audioAvailable {
-				l.game.elevatorUpPlayer.Stop()
-			}
+			l.game.audio.elevatorUp.Stop()
 			l.animating = false
 		})
 

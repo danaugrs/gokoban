@@ -12,13 +12,9 @@ import (
 
 // MapObj describes the bare minimum needed by a game object that occupies a grid cell
 type MapObj struct {
-	node     *core.Node
+	*core.Node
 	loc      GridLoc
 	pushable bool
-}
-
-func (mo *MapObj) Node() *core.Node {
-	return mo.node
 }
 
 func (mo *MapObj) Location() GridLoc {
@@ -34,7 +30,7 @@ func (mo *MapObj) IsPushable() bool {
 }
 
 type IMapObj interface {
-	Node() *core.Node
+	core.INode
 	Location() GridLoc
 	SetLocation(GridLoc)
 	IsPushable() bool
@@ -56,10 +52,10 @@ func NewBox(loc GridLoc) *Box {
 
 func (b *Box) SetMeshAndLight(mesh *graphic.Mesh, light *light.Point) {
 	b.mesh = mesh
-	b.node = &mesh.Node
+	b.Node = &mesh.Node
 	mesh.SetPositionVec(b.loc.Vec3())
 	b.light = light
-	b.node.Add(light)
+	b.Add(light)
 }
 
 // Block
@@ -77,7 +73,7 @@ func NewBlock(loc GridLoc) *Block {
 
 func (b *Block) SetMesh(mesh *graphic.Mesh) {
 	b.mesh = mesh
-	b.node = &mesh.Node
+	b.Node = &mesh.Node
 	mesh.SetPositionVec(b.loc.Vec3())
 }
 
@@ -100,7 +96,7 @@ func NewElevator(loc GridLoc, low, high int) *Elevator {
 
 func (b *Elevator) SetMesh(mesh *graphic.Mesh) {
 	b.mesh = mesh
-	b.node = &mesh.Node
+	b.Node = &mesh.Node
 	mesh.SetPositionVec(b.loc.Vec3())
 }
 
@@ -117,7 +113,7 @@ func NewGopher(loc GridLoc) *Gopher {
 }
 
 func (b *Gopher) SetNode(node *core.Node) {
-	b.node = node
+	b.Node = node
 }
 
 // Pad
@@ -135,6 +131,6 @@ func NewPad(loc GridLoc) *Pad {
 
 func (b *Pad) SetMesh(mesh *graphic.Mesh) {
 	b.mesh = mesh
-	b.node = &mesh.Node
+	b.Node = &mesh.Node
 	mesh.SetPositionVec(b.loc.Vec3())
 }
