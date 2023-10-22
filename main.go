@@ -91,6 +91,7 @@ func (g *Gokoban) RestartLevel(playSound bool) {
 	g.arrowNode.SetVisible(firstLevel)
 
 	g.levels[g.leveln].Restart(playSound)
+	g.gopherLocked = false
 }
 
 // NextLevel loads the next level if exists
